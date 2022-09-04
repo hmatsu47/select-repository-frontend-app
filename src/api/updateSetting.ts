@@ -1,4 +1,4 @@
-import { ErrorResponse, Setting } from "./type";
+import { ErrorResponse, Setting } from "../type";
 import { postApiData } from "./apiHandler";
 import {
   imageUri,
@@ -6,7 +6,7 @@ import {
   releaseAt,
   service,
   setErrorMessage,
-} from "./signal";
+} from "../signal";
 
 export const updateSetting = async () => {
   if (!isReleased() || !imageUri() || !releaseAt()) {

@@ -1,11 +1,11 @@
-import { ErrorResponse, ServiceItem } from "./type";
+import { ErrorResponse, ServiceItem } from "../type";
 import { getApiData } from "./apiHandler";
 import {
   setErrorMessage,
   setImages,
   setRepositories,
   setServices,
-} from "./signal";
+} from "../signal";
 
 export const fetchServices = async () => {
   const load = async (): Promise<void> => {

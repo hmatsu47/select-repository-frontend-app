@@ -1,14 +1,19 @@
-import { ErrorResponse, ImageItem } from "./type";
+import { ErrorResponse, RepositoryItem } from "../type";
 import { getApiData } from "./apiHandler";
-import { repository, service, setErrorMessage, setImages } from "./signal";
+import {
+  service,
+  setErrorMessage,
+  setImages,
+  setRepositories,
+} from "../signal";
 
 export const fetchRepositories = async () => {
-  if (!service() || !repository()) {
+  if (!service()) {
     return;
   }
   const load = async (): Promise<void> => {
-    const data: ImageItem[] | ErrorResponse = await getApiData(
-      `/images/${service()}/${repository()}`
+    const data: RepositoryItem[] | ErrorResponse = await getApiData(
+      `/repositories/${service()}`
     );
     if (
       typeof data === "object" &&
@@ -16,11 +21,13 @@ export const fetchRepositories = async () => {
       typeof (data as ErrorResponse).message === "string"
     ) {
       // 戻り値がエラーメッセージの場合
+      setRepositories(undefined);
       setImages(undefined);
       setErrorMessage((data as ErrorResponse).message);
       return;
     }
-    setImages(data as ImageItem[]);
+    setRepositories(data as RepositoryItem[]);
+    setImages(undefined);
     setErrorMessage(undefined);
   };
   void load();

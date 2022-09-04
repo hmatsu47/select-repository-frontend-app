@@ -1,4 +1,4 @@
-import { ErrorResponse, Setting } from "./type";
+import { ErrorResponse, Setting } from "../type";
 import { getApiData } from "./apiHandler";
 import {
   service,
@@ -6,7 +6,7 @@ import {
   setImageUri,
   setIsReleased,
   setReleaseAt,
-} from "./signal";
+} from "../signal";
 
 export const fetchSetting = async () => {
   if (!service()) {
