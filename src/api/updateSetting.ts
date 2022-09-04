@@ -1,5 +1,5 @@
 import { ErrorResponse, Setting } from "../type";
-import { postApiData } from "./apiHandler";
+import { baseUri, postApiData } from "./apiHandler";
 import {
   imageUri,
   isReleased,
@@ -14,7 +14,7 @@ export const updateSetting = async () => {
   }
   const load = async (): Promise<void> => {
     const data: Setting | ErrorResponse = await postApiData(
-      `/repositories/${service()}`,
+      `${baseUri}/repositories/${service()}`,
       {
         image_uri: imageUri(),
         is_released: isReleased(),

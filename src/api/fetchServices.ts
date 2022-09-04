@@ -1,5 +1,5 @@
 import { ErrorResponse, ServiceItem } from "../type";
-import { getApiData } from "./apiHandler";
+import { baseUri, getApiData } from "./apiHandler";
 import {
   setErrorMessage,
   setImages,
@@ -9,7 +9,9 @@ import {
 
 export const fetchServices = async () => {
   const load = async (): Promise<void> => {
-    const data: ServiceItem[] | ErrorResponse = await getApiData("/services");
+    const data: ServiceItem[] | ErrorResponse = await getApiData(
+      `${baseUri}/services`
+    );
     if (
       typeof data === "object" &&
       data !== null &&

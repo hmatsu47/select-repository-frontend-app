@@ -1,5 +1,5 @@
 import { ErrorResponse, RepositoryItem } from "../type";
-import { getApiData } from "./apiHandler";
+import { baseUri, getApiData } from "./apiHandler";
 import {
   service,
   setErrorMessage,
@@ -13,7 +13,7 @@ export const fetchRepositories = async () => {
   }
   const load = async (): Promise<void> => {
     const data: RepositoryItem[] | ErrorResponse = await getApiData(
-      `/repositories/${service()}`
+      `${baseUri}/repositories/${service()}`
     );
     if (
       typeof data === "object" &&

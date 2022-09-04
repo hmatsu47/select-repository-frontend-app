@@ -1,14 +1,14 @@
 import { ErrorResponse, ImageItem } from "../type";
-import { getApiData } from "./apiHandler";
+import { baseUri, getApiData } from "./apiHandler";
 import { repository, service, setErrorMessage, setImages } from "../signal";
 
-export const fetchRepositories = async () => {
+export const fetchImages = async () => {
   if (!service() || !repository()) {
     return;
   }
   const load = async (): Promise<void> => {
     const data: ImageItem[] | ErrorResponse = await getApiData(
-      `/images/${service()}/${repository()}`
+      `${baseUri}/images/${service()}/${repository()}`
     );
     if (
       typeof data === "object" &&

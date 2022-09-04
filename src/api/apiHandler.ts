@@ -1,5 +1,8 @@
 import { fetchWithTimeout } from "./fetchWithTimeout";
 
+// ベース URI
+export const baseUri = "http://localhost:8080";
+
 // APIからデータ取得（GET）
 export const getApiData = async (url: string) => {
   return await (await fetchWithTimeout(url)).json();
