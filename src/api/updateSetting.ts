@@ -5,16 +5,17 @@ import {
   isReleased,
   releaseAt,
   service,
-  setErrorMessage,
+  setMessage,
+  setMessageSeverity,
 } from "../signal";
 
 export const updateSetting = async () => {
-  if (!isReleased() || !imageUri() || !releaseAt()) {
+  if (!isReleased() === undefined || !imageUri() || !releaseAt()) {
     return;
   }
   const load = async (): Promise<void> => {
     const data: Setting | ErrorResponse = await postApiData(
-      `${baseUri}/repositories/${service()}`,
+      `${baseUri}/setting/${service()}`,
       {
         image_uri: imageUri(),
         is_released: isReleased(),
@@ -27,10 +28,12 @@ export const updateSetting = async () => {
       typeof (data as ErrorResponse).message === "string"
     ) {
       // 戻り値がエラーメッセージの場合
-      setErrorMessage((data as ErrorResponse).message);
+      setMessage((data as ErrorResponse).message);
+      setMessageSeverity("error");
       return;
     }
-    setErrorMessage(undefined);
+    setMessage("リリースイメージ URI とリリース日時をセットしました。");
+    setMessageSeverity("success");
   };
   void load();
 };
