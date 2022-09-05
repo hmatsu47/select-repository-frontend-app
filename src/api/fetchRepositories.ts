@@ -2,8 +2,9 @@ import { ErrorResponse, RepositoryItem } from "../type";
 import { baseUri, getApiData } from "./apiHandler";
 import {
   service,
-  setErrorMessage,
   setImages,
+  setMessage,
+  setMessageSeverity,
   setRepositories,
 } from "../signal";
 
@@ -23,12 +24,13 @@ export const fetchRepositories = async () => {
       // 戻り値がエラーメッセージの場合
       setRepositories(undefined);
       setImages(undefined);
-      setErrorMessage((data as ErrorResponse).message);
+      setMessage((data as ErrorResponse).message);
+      setMessageSeverity("error");
       return;
     }
     setRepositories(data as RepositoryItem[]);
     setImages(undefined);
-    setErrorMessage(undefined);
+    setMessage(undefined);
   };
   void load();
 };

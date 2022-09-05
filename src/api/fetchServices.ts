@@ -1,8 +1,9 @@
 import { ErrorResponse, ServiceItem } from "../type";
 import { baseUri, getApiData } from "./apiHandler";
 import {
-  setErrorMessage,
   setImages,
+  setMessage,
+  setMessageSeverity,
   setRepositories,
   setServices,
 } from "../signal";
@@ -21,13 +22,14 @@ export const fetchServices = async () => {
       setServices(undefined);
       setRepositories(undefined);
       setImages(undefined);
-      setErrorMessage((data as ErrorResponse).message);
+      setMessage((data as ErrorResponse).message);
+      setMessageSeverity("error");
       return;
     }
     setServices(data as ServiceItem[]);
     setRepositories(undefined);
     setImages(undefined);
-    setErrorMessage(undefined);
+    setMessage(undefined);
   };
   void load();
 };

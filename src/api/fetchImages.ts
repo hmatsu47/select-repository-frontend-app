@@ -1,6 +1,13 @@
 import { ErrorResponse, ImageItem } from "../type";
 import { baseUri, getApiData } from "./apiHandler";
-import { repository, service, setErrorMessage, setImages } from "../signal";
+import {
+  repository,
+  service,
+  setImages,
+  setMessage,
+  setMessageSeverity,
+} from "../signal";
+import { formatDateTimeDisplay } from "../formatDateTime";
 
 export const fetchImages = async () => {
   if (!service() || !repository()) {
@@ -17,11 +24,12 @@ export const fetchImages = async () => {
     ) {
       // 戻り値がエラーメッセージの場合
       setImages(undefined);
-      setErrorMessage((data as ErrorResponse).message);
+      setMessage((data as ErrorResponse).message);
+      setMessageSeverity("error");
       return;
     }
     setImages(data as ImageItem[]);
-    setErrorMessage(undefined);
+    setMessage(undefined);
   };
   void load();
 };
