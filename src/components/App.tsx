@@ -3,6 +3,7 @@ import Box from "@suid/material/Box";
 import Stack from "@suid/material/Stack";
 import { ImageList } from "./ImageList";
 import { LastReleased } from "./LastReleased";
+import { Message } from "./Message";
 import { ReleaseSetting } from "./ReleaseSetting";
 import { RepositorySelector } from "./RepositorySelector";
 import { ServiceSelector } from "./ServiceSelector";
@@ -27,6 +28,7 @@ export const App: Component = () => {
           <LastReleased />
           <RepositorySelector />
           <ReleaseSetting />
+          <Message />
           <ImageList />
         </Stack>
       </Box>
