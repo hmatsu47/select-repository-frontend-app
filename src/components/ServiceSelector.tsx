@@ -4,11 +4,16 @@ import Stack from "@suid/material/Stack";
 import Typography from "@suid/material/Typography";
 import { ServiceButton } from "./ServiceButton";
 import { fetchServices } from "../api/fetchServices";
-import { services } from "../signal";
+import { services, setService } from "../signal";
 
 export const ServiceSelector = () => {
   onMount(async () => {
     await fetchServices();
+    // ローカルストレージから前回の選択肢を読み取る
+    const tmpService = localStorage.getItem("selectedService");
+    if (tmpService) {
+      setService(tmpService);
+    }
   });
 
   return (

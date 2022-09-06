@@ -19,7 +19,7 @@ export const LastReleased = () => {
         <Stack spacing={2} direction="column">
           <Stack spacing={2} direction="row">
             <Typography variant="h6" sx={{ minWidth: "256px" }}>
-              前回リリースイメージ URI
+              前回リリースイメージURI
             </Typography>
             <Typography variant="h6">{lastImageUri()!}</Typography>
           </Stack>

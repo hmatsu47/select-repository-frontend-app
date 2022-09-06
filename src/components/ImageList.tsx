@@ -8,12 +8,13 @@ import TableCell from "@suid/material/TableCell";
 import TableContainer from "@suid/material/TableContainer";
 import TableHead from "@suid/material/TableHead";
 import TableRow from "@suid/material/TableRow";
+import Typography from "@suid/material/Typography";
 import { images, imageUri, repository, setImageUri } from "../signal";
 import { formatDateTimeDisplay } from "../formatDateTime";
 
 export const ImageList = () => {
   return (
-    <Show when={repository() && images()} fallback={<></>}>
+    <Show when={repository() && images() !== undefined} fallback={<></>}>
       <Box
         sx={{
           width: "100%",
@@ -22,58 +23,70 @@ export const ImageList = () => {
         }}
         aria-live="polite"
       >
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>選択</TableCell>
-                <TableCell>イメージ URI</TableCell>
-                <TableCell>プッシュ日時</TableCell>
-                <TableCell>サイズ（MB）</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <For each={images()} fallback={<></>}>
-                {(imageItem) => (
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      <Button
-                        variant={
-                          imageUri() && imageUri() === imageItem.uri
-                            ? "contained"
-                            : "outlined"
-                        }
-                        size="small"
-                        color={
-                          imageUri() && imageUri() === imageItem.uri
-                            ? "primary"
-                            : "inherit"
-                        }
-                        onClick={async (e) => {
-                          setImageUri(imageItem.uri);
-                        }}
-                        sx={{ textTransform: "none" }}
-                      >
-                        選択
-                      </Button>
-                    </TableCell>
-                    <TableCell>{imageItem.uri}</TableCell>
-                    <TableCell>
-                      {formatDateTimeDisplay(new Date(imageItem.pushed_at))}
-                    </TableCell>
-                    <TableCell align="right">
-                      {(
-                        Math.round(
-                          (imageItem.size / (1024 * 1024)) * Math.pow(10, 2)
-                        ) / Math.pow(10, 2)
-                      ).toLocaleString()}
-                    </TableCell>
-                  </TableRow>
-                )}
-              </For>
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Show
+          when={images() !== null}
+          fallback={
+            <Typography variant="h6">
+              リポジトリにイメージがありません
+            </Typography>
+          }
+        >
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>選択</TableCell>
+                  <TableCell>
+                    イメージURI（リポジトリURI:タグ または
+                    リポジトリURI@ダイジェスト）
+                  </TableCell>
+                  <TableCell>プッシュ日時</TableCell>
+                  <TableCell>サイズ（MB）</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <For each={images()} fallback={<></>}>
+                  {(imageItem) => (
+                    <TableRow>
+                      <TableCell component="th" scope="row">
+                        <Button
+                          variant={
+                            imageUri() && imageUri() === imageItem.uri
+                              ? "contained"
+                              : "outlined"
+                          }
+                          size="small"
+                          color={
+                            imageUri() && imageUri() === imageItem.uri
+                              ? "primary"
+                              : "inherit"
+                          }
+                          onClick={async (e) => {
+                            setImageUri(imageItem.uri);
+                          }}
+                          sx={{ textTransform: "none" }}
+                        >
+                          選択
+                        </Button>
+                      </TableCell>
+                      <TableCell>{imageItem.uri}</TableCell>
+                      <TableCell>
+                        {formatDateTimeDisplay(new Date(imageItem.pushed_at))}
+                      </TableCell>
+                      <TableCell align="right">
+                        {(
+                          Math.round(
+                            (imageItem.size / (1000 * 1000)) * Math.pow(10, 2)
+                          ) / Math.pow(10, 2)
+                        ).toLocaleString()}
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </For>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Show>
       </Box>
     </Show>
   );

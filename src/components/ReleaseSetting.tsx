@@ -44,11 +44,16 @@ export const ReleaseSetting = () => {
               }
               onChange={(event) => {
                 setReleaseAt(
-                  new Date(
-                    Date.parse(formatDateTimeStore(event.currentTarget.value))
-                  )
+                  event.currentTarget.value === ""
+                    ? undefined
+                    : new Date(
+                        Date.parse(
+                          formatDateTimeStore(event.currentTarget.value)
+                        )
+                      )
                 );
               }}
+              max="9999-12-31 23:59"
             />
             <Button
               variant="contained"
