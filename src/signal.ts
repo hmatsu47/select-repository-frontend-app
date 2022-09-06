@@ -5,6 +5,9 @@ import { ImageItem, RepositoryItem, ServiceItem } from "./type";
 
 export const [service, setService] = createSignal<string | undefined>();
 export const [repository, setRepository] = createSignal<string | undefined>();
+export const [repositoryUri, setRepositoryUri] = createSignal<
+  string | undefined
+>();
 export const [services, setServices] = createSignal<
   ServiceItem[] | undefined
 >();
