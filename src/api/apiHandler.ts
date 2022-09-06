@@ -1,7 +1,7 @@
 import { fetchWithTimeout } from "./fetchWithTimeout";
 
 // ベース URI
-export const baseUri = "http://10.11.17.43/api";
+export const baseUri = "/api";
 
 // APIからデータ取得（GET）
 export const getApiData = async (url: string) => {

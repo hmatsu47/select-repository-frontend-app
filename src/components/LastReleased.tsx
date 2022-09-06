@@ -21,13 +21,13 @@ export const LastReleased = () => {
             <Typography variant="h6" sx={{ minWidth: "256px" }}>
               前回リリースイメージURI
             </Typography>
-            <Typography variant="h6">{lastImageUri()!}</Typography>
+            <Typography variant="subtitle1">{lastImageUri()!}</Typography>
           </Stack>
           <Stack spacing={2} direction="row">
             <Typography variant="h6" sx={{ minWidth: "256px" }}>
               前回リリース日時
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="subtitle1">
               {formatDateTimeDisplay(new Date(lastReleasedAt()!))}
             </Typography>
           </Stack>

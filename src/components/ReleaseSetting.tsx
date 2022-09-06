@@ -29,7 +29,7 @@ export const ReleaseSetting = () => {
             <Typography variant="h6" sx={{ minWidth: "256px", color: "#f00" }}>
               次回リリースイメージ　URI
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="subtitle1">
               {imageUri() ? imageUri() : "下のリストから選択してください"}
             </Typography>
           </Stack>
