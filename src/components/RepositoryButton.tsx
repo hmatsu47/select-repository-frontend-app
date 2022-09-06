@@ -1,6 +1,11 @@
 import Button from "@suid/material/Button";
 import { fetchImages } from "../api/fetchImages";
-import { repository, service, setRepository } from "../signal";
+import {
+  repository,
+  service,
+  setRepository,
+  setRepositoryUri,
+} from "../signal";
 import { RepositoryItem } from "../type";
 
 type Props = {
@@ -17,6 +22,7 @@ export const RepositoryButton = (props: Props) => {
       color={repository() === props.repositoryItem.name ? "primary" : "inherit"}
       onClick={async (e) => {
         setRepository(props.repositoryItem.name);
+        setRepositoryUri(props.repositoryItem.uri);
         // 選択肢をローカルストレージに（サービス別で）記録しておく
         localStorage.setItem(
           `selectedRepository-${service()}`,

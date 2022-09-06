@@ -9,12 +9,21 @@ import TableContainer from "@suid/material/TableContainer";
 import TableHead from "@suid/material/TableHead";
 import TableRow from "@suid/material/TableRow";
 import Typography from "@suid/material/Typography";
-import { images, imageUri, repository, setImageUri } from "../signal";
+import {
+  images,
+  imageUri,
+  repository,
+  repositoryUri,
+  setImageUri,
+} from "../signal";
 import { formatDateTimeDisplay } from "../formatDateTime";
 
 export const ImageList = () => {
   return (
-    <Show when={repository() && images() !== undefined} fallback={<></>}>
+    <Show
+      when={repository() && repositoryUri() && images() !== undefined}
+      fallback={<></>}
+    >
       <Box
         sx={{
           width: "100%",
@@ -37,11 +46,21 @@ export const ImageList = () => {
                 <TableRow>
                   <TableCell>選択</TableCell>
                   <TableCell>
-                    イメージURI（リポジトリURI:タグ または
-                    リポジトリURI@ダイジェスト）
+                    イメージURI
+                    <br />
+                    （リポジトリURI:タグ または リポジトリURI@ダイジェスト）
                   </TableCell>
                   <TableCell>プッシュ日時</TableCell>
-                  <TableCell>サイズ（MB）</TableCell>
+                  <TableCell>
+                    サイズ
+                    <br />
+                    （MB）
+                  </TableCell>
+                  <TableCell>
+                    脆弱性調査
+                    <br />
+                    （要AWSログイン）
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -79,6 +98,26 @@ export const ImageList = () => {
                             (imageItem.size / (1000 * 1000)) * Math.pow(10, 2)
                           ) / Math.pow(10, 2)
                         ).toLocaleString()}
+                      </TableCell>
+                      <TableCell>
+                        <Button
+                          variant="text"
+                          onClick={async (e) => {
+                            const url = `https://${
+                              repositoryUri()!.split(".")[3]
+                            }.console.aws.amazon.com/ecr/repositories/private/${
+                              repositoryUri()!.split(".")[0]
+                            }/${repository()}/image/${
+                              imageItem.digest
+                            }/scan-results/?region=${
+                              repositoryUri()!.split(".")[3]
+                            }`;
+                            window.open(url, "_blank");
+                          }}
+                          sx={{ textTransform: "none" }}
+                        >
+                          結果表示
+                        </Button>
                       </TableCell>
                     </TableRow>
                   )}
