@@ -19,7 +19,7 @@ export const App: Component = () => {
           width: "100%",
           minWidth: "1024px",
           display: "flex",
-          justifyContent: "center",
+          // justifyContent: "center",
         }}
         aria-live="polite"
       >

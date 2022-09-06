@@ -21,9 +21,10 @@ export const fetchWithTimeout = async (url: string, object?: Object) => {
           signal: controller.signal,
         };
     const response = await fetch(url, request);
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
+    // このアプリケーションでは Error を throw しない
+    // if (!response.ok) {
+    //   throw new Error(response.statusText);
+    // }
     return response;
   } finally {
     clearTimeout(timeout);

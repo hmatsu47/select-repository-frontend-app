@@ -7,7 +7,6 @@ import {
   setMessage,
   setMessageSeverity,
 } from "../signal";
-import { formatDateTimeDisplay } from "../formatDateTime";
 
 export const fetchImages = async () => {
   if (!service() || !repository()) {

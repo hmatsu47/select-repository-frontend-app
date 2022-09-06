@@ -25,11 +25,15 @@ export const ReleaseSetting = () => {
         aria-live="polite"
       >
         <Stack spacing={2} direction="column">
-          <Stack spacing={2} direction="row">
+          <Stack
+            spacing={2}
+            direction="row"
+            sx={{ display: "flex", alignItems: "center" }}
+          >
             <Typography variant="h6" sx={{ minWidth: "256px", color: "#f00" }}>
               次回リリースイメージ　URI
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="subtitle1">
               {imageUri() ? imageUri() : "下のリストから選択してください"}
             </Typography>
           </Stack>
@@ -44,11 +48,16 @@ export const ReleaseSetting = () => {
               }
               onChange={(event) => {
                 setReleaseAt(
-                  new Date(
-                    Date.parse(formatDateTimeStore(event.currentTarget.value))
-                  )
+                  event.currentTarget.value === ""
+                    ? undefined
+                    : new Date(
+                        Date.parse(
+                          formatDateTimeStore(event.currentTarget.value)
+                        )
+                      )
                 );
               }}
+              max="9999-12-31 23:59"
             />
             <Button
               variant="contained"

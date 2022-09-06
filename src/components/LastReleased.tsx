@@ -17,17 +17,25 @@ export const LastReleased = () => {
         aria-live="polite"
       >
         <Stack spacing={2} direction="column">
-          <Stack spacing={2} direction="row">
+          <Stack
+            spacing={2}
+            direction="row"
+            sx={{ display: "flex", alignItems: "center" }}
+          >
             <Typography variant="h6" sx={{ minWidth: "256px" }}>
-              前回リリースイメージ URI
+              前回リリースイメージURI
             </Typography>
-            <Typography variant="h6">{lastImageUri()!}</Typography>
+            <Typography variant="subtitle1">{lastImageUri()!}</Typography>
           </Stack>
-          <Stack spacing={2} direction="row">
+          <Stack
+            spacing={2}
+            direction="row"
+            sx={{ display: "flex", alignItems: "center" }}
+          >
             <Typography variant="h6" sx={{ minWidth: "256px" }}>
               前回リリース日時
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="subtitle1">
               {formatDateTimeDisplay(new Date(lastReleasedAt()!))}
             </Typography>
           </Stack>
