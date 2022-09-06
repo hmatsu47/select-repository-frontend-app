@@ -25,7 +25,11 @@ export const ReleaseSetting = () => {
         aria-live="polite"
       >
         <Stack spacing={2} direction="column">
-          <Stack spacing={2} direction="row">
+          <Stack
+            spacing={2}
+            direction="row"
+            sx={{ display: "flex", alignItems: "center" }}
+          >
             <Typography variant="h6" sx={{ minWidth: "256px", color: "#f00" }}>
               次回リリースイメージ　URI
             </Typography>
