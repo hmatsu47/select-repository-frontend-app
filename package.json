@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@suid/material": "^0.6.1",
-    "solid-js": "^1.5.4"
+    "solid-js": "^1.5.4",
+    "vi-fetch": "^0.8.0"
   }
 }

@@ -18,7 +18,7 @@ export const updateSetting = async () => {
       `${baseUri}/setting/${service()}`,
       {
         image_uri: imageUri(),
-        is_released: isReleased(),
+        is_released: isReleased(), // 値は無視される
         release_at: releaseAt(),
       } as Setting
     );
