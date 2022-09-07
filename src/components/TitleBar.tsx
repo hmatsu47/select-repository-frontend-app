@@ -13,9 +13,9 @@ export const TitleBar = () => {
         }}
       >
         {localStorage.getItem("environment")
-          ? localStorage.getItem("environment")
+          ? `${localStorage.getItem("environment")}・`
           : ""}
-        ・コンテナリリース設定
+        コンテナリリース設定
       </Typography>
     </AppBar>
   );
