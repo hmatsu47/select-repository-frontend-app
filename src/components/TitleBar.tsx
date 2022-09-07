@@ -12,7 +12,10 @@ export const TitleBar = () => {
           padding: "0 0 0 10px",
         }}
       >
-        コンテナリリース設定
+        {localStorage.getItem("environment")
+          ? localStorage.getItem("environment")
+          : ""}
+        ・コンテナリリース設定
       </Typography>
     </AppBar>
   );

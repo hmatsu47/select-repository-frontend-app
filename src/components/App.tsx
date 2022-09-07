@@ -1,6 +1,8 @@
 import { Component } from "solid-js";
 import Box from "@suid/material/Box";
 import Stack from "@suid/material/Stack";
+import { ThemeProvider } from "@suid/material";
+import { ColorTheme } from "../ColorTheme";
 import { ImageList } from "./ImageList";
 import { LastReleased } from "./LastReleased";
 import { Message } from "./Message";
@@ -11,7 +13,7 @@ import { TitleBar } from "./TitleBar";
 
 export const App: Component = () => {
   return (
-    <>
+    <ThemeProvider theme={ColorTheme}>
       <TitleBar />
       <Box
         sx={{
@@ -32,6 +34,6 @@ export const App: Component = () => {
           <ImageList />
         </Stack>
       </Box>
-    </>
+    </ThemeProvider>
   );
 };
