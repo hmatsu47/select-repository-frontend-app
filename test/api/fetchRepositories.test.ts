@@ -13,12 +13,12 @@ describe("fetchRepositories", () => {
     {
       service: "service1",
       name: "hoge",
-      uri: "00000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge",
+      uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge",
     },
     {
       service: "service2",
       name: "fuga",
-      uri: "00000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga",
+      uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga",
     },
   ];
   apiCall.forEach((testCase) => {

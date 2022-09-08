@@ -35,7 +35,7 @@ describe("fetchImages", () => {
       repository_name: "fuga",
       size: 2000000,
       tags: null,
-      uri: "00000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge@sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
+      uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge@sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
     },
   ];
   apiCall.forEach((testCase) => {

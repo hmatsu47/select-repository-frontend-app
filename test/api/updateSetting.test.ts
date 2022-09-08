@@ -21,14 +21,15 @@ describe("updateSetting", () => {
   const apiCall = [
     {
       service: "service1",
-      image_uri: "00000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
+      image_uri:
+        "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
       is_released: false,
       release_at: new Date(),
     },
     {
       service: "service2",
       image_uri:
-        "00000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga@sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
+        "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga@sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
       is_released: false,
       release_at: new Date(),
     },
