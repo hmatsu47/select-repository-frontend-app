@@ -29,6 +29,7 @@ export const ServiceButton = (props: Props) => {
         }
       }}
       sx={{ textTransform: "none" }}
+      title={`${props.serviceItem.name} を選択`}
     >
       {props.serviceItem.name}
     </Button>

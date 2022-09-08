@@ -31,6 +31,7 @@ export const RepositoryButton = (props: Props) => {
         await fetchImages();
       }}
       sx={{ textTransform: "none" }}
+      title={`${props.repositoryItem.name} を選択`}
     >
       {props.repositoryItem.name}
     </Button>

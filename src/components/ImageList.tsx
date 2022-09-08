@@ -84,6 +84,7 @@ export const ImageList = () => {
                             setImageUri(imageItem.uri);
                           }}
                           sx={{ textTransform: "none" }}
+                          title={`${imageItem.uri} を選択`}
                         >
                           選択
                         </Button>
@@ -115,6 +116,7 @@ export const ImageList = () => {
                             window.open(url, "_blank");
                           }}
                           sx={{ textTransform: "none" }}
+                          title={`${imageItem.digest} の結果を表示`}
                         >
                           結果表示
                         </Button>

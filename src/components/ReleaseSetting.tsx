@@ -41,24 +41,27 @@ export const ReleaseSetting = () => {
             <Typography variant="h6" sx={{ minWidth: "256px", color: "#f00" }}>
               次回リリース日時
             </Typography>
-            <input
-              type="datetime-local"
-              value={
-                releaseAt() ? formatDateTimeInput(new Date(releaseAt()!)) : ""
-              }
-              onChange={(event) => {
-                setReleaseAt(
-                  event.currentTarget.value === ""
-                    ? undefined
-                    : new Date(
-                        Date.parse(
-                          formatDateTimeStore(event.currentTarget.value)
+            <label>
+              次回リリース日時
+              <input
+                type="datetime-local"
+                value={
+                  releaseAt() ? formatDateTimeInput(new Date(releaseAt()!)) : ""
+                }
+                onChange={(event) => {
+                  setReleaseAt(
+                    event.currentTarget.value === ""
+                      ? undefined
+                      : new Date(
+                          Date.parse(
+                            formatDateTimeStore(event.currentTarget.value)
+                          )
                         )
-                      )
-                );
-              }}
-              max="9999-12-31 23:59"
-            />
+                  );
+                }}
+                max="9999-12-31 23:59"
+              />
+            </label>
             <Button
               variant="contained"
               size="small"
@@ -73,6 +76,7 @@ export const ReleaseSetting = () => {
                 setReleaseAt(tomorrow);
               }}
               sx={{ textTransform: "none" }}
+              title="翌朝リリースする"
             >
               翌朝 04:05
             </Button>
@@ -84,6 +88,7 @@ export const ReleaseSetting = () => {
                 setReleaseAt(new Date());
               }}
               sx={{ textTransform: "none" }}
+              title="即時リリースする"
             >
               現在（即時リリースする）
             </Button>
@@ -107,6 +112,7 @@ export const ReleaseSetting = () => {
                 }
               }}
               sx={{ textTransform: "none" }}
+              title="次回リリースをセット"
             >
               指定のイメージ URI と日時をセット
             </Button>
