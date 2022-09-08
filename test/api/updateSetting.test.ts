@@ -48,12 +48,13 @@ apiCall.forEach((testCase) => {
     await updateSetting();
     // とりあえず呼び出しが行われたことだけを確認（戻り値は今のところ上手くテストできず）
     expect(mock).toHaveFetched();
-    // ↓型の問題？でマッチしない？
-    // expect(mock).toHaveFetchedWithBody({
-    //   image_uri: imageUri(),
-    //   is_released: isReleased(),
-    //   release_at: releaseAt(),
-    // } as Setting);
+    expect(mock).toHaveFetchedWithBody(
+      JSON.stringify({
+        image_uri: imageUri(),
+        is_released: isReleased(),
+        release_at: releaseAt(),
+      } as Setting)
+    );
     mock.clear();
   });
 });
