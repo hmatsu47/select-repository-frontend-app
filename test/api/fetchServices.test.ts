@@ -7,7 +7,7 @@ import { ServiceItem } from "../../src/type";
 import { baseUri } from "../../src/api/apiHandler";
 import { fetchServices } from "../../src/api/fetchServices";
 
-describe("fetchImages", () => {
+describe("fetchServices", () => {
   test(`サービス一覧 API 呼び出し`, async () => {
     const mock = mockGet(`${baseUri}/services`).willResolve([
       {
