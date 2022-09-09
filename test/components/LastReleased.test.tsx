@@ -9,7 +9,7 @@ import {
 } from "../../src/signal";
 
 describe("<LastReleased />", () => {
-  const messageList = [
+  const lastReleasedList = [
     {
       title: "タグ形式の URI",
       lastImageUri:
@@ -25,7 +25,7 @@ describe("<LastReleased />", () => {
       lastReleasedAtString: "2022-12-31 23:59",
     },
   ];
-  messageList.forEach((testCase) => {
+  lastReleasedList.forEach((testCase) => {
     test(testCase.title, async () => {
       setIsReleased(true);
       setLastImageUri(testCase.lastImageUri);

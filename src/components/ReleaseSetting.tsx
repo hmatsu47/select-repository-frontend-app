@@ -39,29 +39,27 @@ export const ReleaseSetting = () => {
           </Stack>
           <Stack spacing={2} direction="row">
             <Typography variant="h6" sx={{ minWidth: "256px", color: "#f00" }}>
-              次回リリース日時
+              <label id="releaseAt">次回リリース日時</label>
             </Typography>
-            <label>
-              次回リリース日時
-              <input
-                type="datetime-local"
-                value={
-                  releaseAt() ? formatDateTimeInput(new Date(releaseAt()!)) : ""
-                }
-                onChange={(event) => {
-                  setReleaseAt(
-                    event.currentTarget.value === ""
-                      ? undefined
-                      : new Date(
-                          Date.parse(
-                            formatDateTimeStore(event.currentTarget.value)
-                          )
+            <input
+              type="datetime-local"
+              aria-labelledby="releaseAt"
+              value={
+                releaseAt() ? formatDateTimeInput(new Date(releaseAt()!)) : ""
+              }
+              onChange={(event) => {
+                setReleaseAt(
+                  event.currentTarget.value === ""
+                    ? undefined
+                    : new Date(
+                        Date.parse(
+                          formatDateTimeStore(event.currentTarget.value)
                         )
-                  );
-                }}
-                max="9999-12-31 23:59"
-              />
-            </label>
+                      )
+                );
+              }}
+              max="9999-12-31 23:59"
+            />
             <Button
               variant="contained"
               size="small"
