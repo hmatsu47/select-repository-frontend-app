@@ -2,7 +2,6 @@ import { describe, expect, test } from "vitest";
 import { render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { RepositoryItem } from "../../src/type";
-import { baseUri } from "../../src/api/apiHandler";
 import { RepositorySelector } from "../../src/components/RepositorySelector";
 import { setRepositories, setService } from "../../src/signal";
 
@@ -14,7 +13,7 @@ describe("<RepositorySelector />", () => {
       repositories: [
         {
           name: "repository1",
-          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge",
+          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/repository1",
         } as RepositoryItem,
       ],
     },
@@ -24,11 +23,11 @@ describe("<RepositorySelector />", () => {
       repositories: [
         {
           name: "repository1",
-          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge",
+          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/repository1",
         } as RepositoryItem,
         {
           name: "repository2",
-          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga",
+          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/repository2",
         } as RepositoryItem,
       ],
     },
@@ -38,15 +37,15 @@ describe("<RepositorySelector />", () => {
       repositories: [
         {
           name: "repository1",
-          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge",
+          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/repository1",
         } as RepositoryItem,
         {
           name: "repository2",
-          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga",
+          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/repository2",
         } as RepositoryItem,
         {
           name: "repository3",
-          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/foo",
+          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/repository3",
         } as RepositoryItem,
       ],
     },
