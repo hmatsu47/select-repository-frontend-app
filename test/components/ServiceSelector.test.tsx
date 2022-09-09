@@ -3,7 +3,7 @@
 import { describe, expect, test } from "vitest";
 import "vi-fetch/setup";
 import { mockGet } from "vi-fetch";
-import { fireEvent, render } from "solid-testing-library";
+import { render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { ServiceItem } from "../../src/type";
 import { baseUri } from "../../src/api/apiHandler";
