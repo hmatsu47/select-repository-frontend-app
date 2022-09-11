@@ -13,7 +13,7 @@ import {
   setReleaseAt,
   setService,
 } from "../../src/signal";
-import { ImageItem, Setting } from "../../src/type";
+import { ImageItem } from "../../src/type";
 
 describe("<ReleaseSetting />", () => {
   beforeEach(() => {
