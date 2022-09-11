@@ -74,76 +74,56 @@ describe("<ReleaseSetting />", () => {
     // 次回リリースをセット（ボタンクリック）は confirm()（要 Enter key）があるので一旦省略
     unmount();
   });
-  // テスト 2 つ目
-  test("翌朝 04:05 ボタンをクリック", async () => {
-    const { container, findByText, findByTitle, unmount } = render(() => (
-      <ReleaseSetting />
-    ));
-    const expectedReleaseUri = (await findByText(
-      "次回リリースイメージ URI"
-    )) as HTMLElement;
-    expect(expectedReleaseUri).toHaveTextContent("次回リリースイメージ URI");
-    const expectedReleaseAt = (await findByText(
-      "次回リリース日時"
-    )) as HTMLElement;
-    expect(expectedReleaseAt).toHaveTextContent("次回リリース日時");
-    // css の名前が動的に変わるので固定値に置換
-    const htmlBefore = formatSnapshot(container.innerHTML);
-    expect(htmlBefore).toMatchSnapshot();
-    // 翌朝 04:05 ボタンクリック
-    const button = (await findByTitle("翌朝リリースする")) as HTMLInputElement;
-    expect(button).toHaveTextContent("翌朝 04:05");
-    fireEvent.click(button);
-    expect(releaseAt()).toStrictEqual(new Date(2022, 0, 2, 4, 5));
-    // 日付指定後のスナップショット
-    const htmlAfterTimeSet = formatSnapshot(container.innerHTML);
-    expect(htmlAfterTimeSet).toMatchSnapshot();
-    // イメージ URI 指定
-    const dummyUri =
-      "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga:latest";
-    setImageUri(dummyUri);
-    const expectedReleaseUriValue = (await findByText(dummyUri)) as HTMLElement;
-    expect(expectedReleaseUriValue).toHaveTextContent(dummyUri);
-    // イメージ URI 指定後のスナップショット
-    const htmlAfterUriSet = formatSnapshot(container.innerHTML);
-    expect(htmlAfterUriSet).toMatchSnapshot();
-    // 次回リリースをセット（ボタンクリック）は confirm()（要 Enter key）があるので一旦省略
-    unmount();
-  });
-  // テスト 3 つ目
-  test("即時リリースボタンをクリック", async () => {
-    const { container, findByText, findByTitle, unmount } = render(() => (
-      <ReleaseSetting />
-    ));
-    const expectedReleaseUri = (await findByText(
-      "次回リリースイメージ URI"
-    )) as HTMLElement;
-    expect(expectedReleaseUri).toHaveTextContent("次回リリースイメージ URI");
-    const expectedReleaseAt = (await findByText(
-      "次回リリース日時"
-    )) as HTMLElement;
-    expect(expectedReleaseAt).toHaveTextContent("次回リリース日時");
-    // css の名前が動的に変わるので固定値に置換
-    const htmlBefore = formatSnapshot(container.innerHTML);
-    expect(htmlBefore).toMatchSnapshot();
-    // 即時リリースボタンクリック
-    const button = (await findByTitle("即時リリースする")) as HTMLInputElement;
-    expect(button).toHaveTextContent("現在（即時リリースする）");
-    fireEvent.click(button);
-    expect(releaseAt()).toStrictEqual(new Date(2022, 0, 1, 0, 0));
-    // 日付指定後のスナップショット
-    const htmlAfterTimeSet = formatSnapshot(container.innerHTML);
-    expect(htmlAfterTimeSet).toMatchSnapshot();
-    // イメージ URI 指定
-    const dummyUri =
-      "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga:latest";
-    setImageUri(dummyUri);
-    const expectedReleaseUriValue = (await findByText(dummyUri)) as HTMLElement;
-    expect(expectedReleaseUriValue).toHaveTextContent(dummyUri);
-    // イメージ URI 指定後のスナップショット
-    const htmlAfterUriSet = formatSnapshot(container.innerHTML);
-    expect(htmlAfterUriSet).toMatchSnapshot();
-    // 次回リリースをセット（ボタンクリック）は confirm()（要 Enter key）があるので一旦省略
-    unmount();
+  // テスト 2 つ目・3 つ目
+  const buttonList = [
+    {
+      title: "翌朝リリースする",
+      text: "翌朝 04:05",
+      expected: new Date(2022, 0, 2, 4, 5),
+    },
+    {
+      title: "即時リリースする",
+      text: "現在（即時リリースする）",
+      expected: new Date(2022, 0, 1, 0, 0),
+    },
+  ];
+  buttonList.forEach((testCase) => {
+    test(`${testCase.title}ボタンをクリック`, async () => {
+      const { container, findByText, findByTitle, unmount } = render(() => (
+        <ReleaseSetting />
+      ));
+      const expectedReleaseUri = (await findByText(
+        "次回リリースイメージ URI"
+      )) as HTMLElement;
+      expect(expectedReleaseUri).toHaveTextContent("次回リリースイメージ URI");
+      const expectedReleaseAt = (await findByText(
+        "次回リリース日時"
+      )) as HTMLElement;
+      expect(expectedReleaseAt).toHaveTextContent("次回リリース日時");
+      // css の名前が動的に変わるので固定値に置換
+      const htmlBefore = formatSnapshot(container.innerHTML);
+      expect(htmlBefore).toMatchSnapshot();
+      // 翌朝 04:05 ボタンクリック
+      const button = (await findByTitle(testCase.title)) as HTMLInputElement;
+      expect(button).toHaveTextContent(testCase.text);
+      fireEvent.click(button);
+      expect(releaseAt()).toStrictEqual(testCase.expected);
+      // 日付指定後のスナップショット
+      const htmlAfterTimeSet = formatSnapshot(container.innerHTML);
+      expect(htmlAfterTimeSet).toMatchSnapshot();
+      // イメージ URI 指定
+      const dummyUri =
+        "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga:latest";
+      setImageUri(dummyUri);
+      const expectedReleaseUriValue = (await findByText(
+        dummyUri
+      )) as HTMLElement;
+      expect(expectedReleaseUriValue).toHaveTextContent(dummyUri);
+      // イメージ URI 指定後のスナップショット
+      const htmlAfterUriSet = formatSnapshot(container.innerHTML);
+      expect(htmlAfterUriSet).toMatchSnapshot();
+      // 次回リリースをセット（ボタンクリック）は confirm()（要 Enter key）があるので一旦省略
+      unmount();
+    });
   });
 });
