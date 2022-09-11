@@ -31,7 +31,7 @@ export const ReleaseSetting = () => {
             sx={{ display: "flex", alignItems: "center" }}
           >
             <Typography variant="h6" sx={{ minWidth: "256px", color: "#f00" }}>
-              次回リリースイメージ　URI
+              次回リリースイメージ URI
             </Typography>
             <Typography variant="subtitle1">
               {imageUri() ? imageUri() : "下のリストから選択してください"}

@@ -24,7 +24,7 @@ describe("fetchImages", () => {
       repository_name: "hoge",
       size: 10000,
       tags: ["latest", "hogera"],
-      uri: "00000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
+      uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
     },
     {
       service: "service2",

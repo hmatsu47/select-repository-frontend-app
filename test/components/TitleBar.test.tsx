@@ -35,8 +35,8 @@ describe("<TitleBar />", () => {
       if (testCase.environment) {
         localStorage.setItem("environment", testCase.environment);
       }
-      const { container, getByText, unmount } = render(() => <TitleBar />);
-      const expected = (await getByText(testCase.expected)) as HTMLElement;
+      const { container, findByText, unmount } = render(() => <TitleBar />);
+      const expected = (await findByText(testCase.expected)) as HTMLElement;
       expect(expected).toHaveTextContent(testCase.expected);
       // css の名前が動的に変わるので固定値に置換
       const html = formatSnapshot(container.innerHTML);

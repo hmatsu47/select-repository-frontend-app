@@ -32,11 +32,11 @@ describe("<ServiceSelector />", () => {
       ],
     },
   ];
+  beforeEach(() => {
+    // localStorage はモック化すべきかも（うまくいかなかったため一旦モックなしで実装）
+    localStorage.removeItem("selectedService");
+  });
   serviceSelectorList.forEach((testCase) => {
-    beforeEach(() => {
-      // localStorage はモック化すべきかも（うまくいかなかったため一旦モックなしで実装）
-      localStorage.removeItem("selectedService");
-    });
     test(testCase.title, async () => {
       setServices(testCase.services);
       const mockServices = mockGet(`${baseUri}/services`).willResolve(
