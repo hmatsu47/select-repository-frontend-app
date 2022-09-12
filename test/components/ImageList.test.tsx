@@ -41,7 +41,7 @@ describe("<ImageList />", () => {
           repository: "hoge",
           digest:
             "sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
-          pushed_at: new Date(),
+          pushed_at: new Date(2022, 8, 12, 14, 45),
           repository_name: "hoge",
           size: 10000,
           tags: ["latest", "hogera"],
@@ -52,7 +52,7 @@ describe("<ImageList />", () => {
           repository: "hoge",
           digest:
             "sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
-          pushed_at: new Date(),
+          pushed_at: new Date(2022, 8, 12, 14, 45),
           repository_name: "hoge",
           size: 2000000,
           tags: undefined,
