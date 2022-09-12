@@ -81,5 +81,20 @@ describe("<ImageList />", () => {
       unmount();
     });
   });
-  // 一覧表示されないケース（スナップショットなし）
+  // 一覧表示されないケース（イメージなし）
+  test("一覧未表示（イメージなし）", async () => {
+    // すべて無指定
+    setRepository("hoge");
+    setRepositoryUri("000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge");
+    setImages(null);
+    const { container, findByText, unmount } = render(() => <ImageList />);
+    const expected = (await findByText(
+      "リポジトリにイメージがありません"
+    )) as HTMLElement;
+    // あえて expect は用意せず（完全一致しないので）
+    // css の名前が動的に変わるので固定値に置換
+    const html = formatSnapshot(container.innerHTML);
+    expect(html).toMatchSnapshot();
+    unmount();
+  });
 });
