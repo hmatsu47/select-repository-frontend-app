@@ -16,6 +16,7 @@ import {
 import { ImageItem } from "../../src/type";
 
 describe("<ImageList />", () => {
+  // 一覧表示されるケース
   const imageCheckList = [
     {
       title: "タグありの URI をセット",
@@ -80,4 +81,5 @@ describe("<ImageList />", () => {
       unmount();
     });
   });
+  // 一覧表示されないケース（スナップショットなし）
 });
