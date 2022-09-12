@@ -17,23 +17,6 @@ import { ImageItem } from "../../src/type";
 
 describe("<ReleaseSetting />", () => {
   beforeEach(() => {
-    setIsReleased(false);
-    setImageUri(undefined);
-    setReleaseAt(undefined);
-    setService("service1");
-    setImages([
-      {
-        service: "service1",
-        repository: "hoge",
-        digest:
-          "sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
-        pushed_at: new Date(),
-        repository_name: "hoge",
-        size: 10000,
-        tags: ["latest", "hogera"],
-        uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
-      } as ImageItem,
-    ]);
     // フェイクタイマーを使う
     vi.useFakeTimers();
     const date = new Date(2022, 0, 1, 0, 0);
@@ -65,6 +48,23 @@ describe("<ReleaseSetting />", () => {
   ];
   buttonList.forEach((testCase) => {
     test(testCase.title, async () => {
+      setIsReleased(false);
+      setImageUri(undefined);
+      setReleaseAt(undefined);
+      setService("service1");
+      setImages([
+        {
+          service: "service1",
+          repository: "hoge",
+          digest:
+            "sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
+          pushed_at: new Date(),
+          repository_name: "hoge",
+          size: 10000,
+          tags: ["latest", "hogera"],
+          uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
+        } as ImageItem,
+      ]);
       const { container, findByText, findByTitle, unmount } = render(() => (
         <ReleaseSetting />
       ));
