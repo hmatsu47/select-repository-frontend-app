@@ -23,7 +23,7 @@ export const LastReleased = () => {
             sx={{ display: "flex", alignItems: "center" }}
           >
             <Typography variant="h6" sx={{ minWidth: "256px" }}>
-              前回リリースイメージURI
+              前回リリースイメージ URI
             </Typography>
             <Typography variant="subtitle1">{lastImageUri()!}</Typography>
           </Stack>
