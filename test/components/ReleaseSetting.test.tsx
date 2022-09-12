@@ -43,52 +43,28 @@ describe("<ReleaseSetting />", () => {
     // 正しいタイマーに戻す
     vi.useRealTimers();
   });
-  // テスト 1 つ目
-  test("任意のリリース時間をセット", async () => {
-    const { container, findByText, unmount } = render(() => <ReleaseSetting />);
-    const expectedReleaseUri = (await findByText(
-      "次回リリースイメージ URI"
-    )) as HTMLElement;
-    expect(expectedReleaseUri).toHaveTextContent("次回リリースイメージ URI");
-    const expectedReleaseAt = (await findByText(
-      "次回リリース日時"
-    )) as HTMLElement;
-    expect(expectedReleaseAt).toHaveTextContent("次回リリース日時");
-    // css の名前が動的に変わるので固定値に置換
-    const htmlBefore = formatSnapshot(container.innerHTML);
-    expect(htmlBefore).toMatchSnapshot();
-    // 日付指定
-    setReleaseAt(new Date(2022, 8, 11, 21, 1));
-    // 日付指定後のスナップショット
-    const htmlAfterTimeSet = formatSnapshot(container.innerHTML);
-    expect(htmlAfterTimeSet).toMatchSnapshot();
-    // イメージ URI 指定
-    const dummyUri =
-      "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest";
-    setImageUri(dummyUri);
-    const expectedReleaseUriValue = (await findByText(dummyUri)) as HTMLElement;
-    expect(expectedReleaseUriValue).toHaveTextContent(dummyUri);
-    // イメージ URI 指定後のスナップショット
-    const htmlAfterUriSet = formatSnapshot(container.innerHTML);
-    expect(htmlAfterUriSet).toMatchSnapshot();
-    // 次回リリースをセット（ボタンクリック）は confirm()（要 Enter key）があるので一旦省略
-    unmount();
-  });
-  // テスト 2 つ目・3 つ目
   const buttonList = [
     {
-      title: "翌朝リリースする",
+      title: "任意のリリース時間をセット",
+      buttonTitle: null,
+      text: null,
+      expected: new Date(2022, 8, 11, 21, 1),
+    },
+    {
+      title: "翌朝リリースするボタンをクリック",
+      buttonTitle: "翌朝リリースする",
       text: "翌朝 04:05",
       expected: new Date(2022, 0, 2, 4, 5),
     },
     {
-      title: "即時リリースする",
+      title: "即時リリースするボタンをクリック",
+      buttonTitle: "即時リリースする",
       text: "現在（即時リリースする）",
       expected: new Date(2022, 0, 1, 0, 0),
     },
   ];
   buttonList.forEach((testCase) => {
-    test(`${testCase.title}ボタンをクリック`, async () => {
+    test(testCase.title, async () => {
       const { container, findByText, findByTitle, unmount } = render(() => (
         <ReleaseSetting />
       ));
@@ -103,17 +79,24 @@ describe("<ReleaseSetting />", () => {
       // css の名前が動的に変わるので固定値に置換
       const htmlBefore = formatSnapshot(container.innerHTML);
       expect(htmlBefore).toMatchSnapshot();
-      // 翌朝 04:05 ボタンクリック
-      const button = (await findByTitle(testCase.title)) as HTMLInputElement;
-      expect(button).toHaveTextContent(testCase.text);
-      fireEvent.click(button);
-      expect(releaseAt()).toStrictEqual(testCase.expected);
+      if (testCase.text) {
+        // ボタンクリック
+        const button = (await findByTitle(
+          testCase.buttonTitle
+        )) as HTMLInputElement;
+        expect(button).toHaveTextContent(testCase.text);
+        fireEvent.click(button);
+        expect(releaseAt()).toStrictEqual(testCase.expected);
+      } else {
+        // 日付指定
+        setReleaseAt(testCase.expected);
+      }
       // 日付指定後のスナップショット
       const htmlAfterTimeSet = formatSnapshot(container.innerHTML);
       expect(htmlAfterTimeSet).toMatchSnapshot();
       // イメージ URI 指定
       const dummyUri =
-        "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/fuga:latest";
+        "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest";
       setImageUri(dummyUri);
       const expectedReleaseUriValue = (await findByText(
         dummyUri
