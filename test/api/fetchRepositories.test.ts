@@ -24,10 +24,12 @@ describe("fetchRepositories", () => {
   apiCall.forEach((testCase) => {
     test(`コンテナリポジトリ一覧 API 呼び出し（service=${testCase.service}）`, async () => {
       setService(testCase.service);
-      const mock = mockGet(`${baseUri}/repositories/${service()}`).willResolve({
-        name: testCase.name,
-        uri: testCase.uri,
-      } as RepositoryItem);
+      const mock = mockGet(`${baseUri}/repositories/${service()}`).willResolve([
+        {
+          name: testCase.name,
+          uri: testCase.uri,
+        },
+      ] as RepositoryItem[]);
       await fetchRepositories();
       // とりあえず呼び出しが行われたことだけを確認（戻り値は今のところ上手くテストできず）
       expect(mock).toHaveFetched();

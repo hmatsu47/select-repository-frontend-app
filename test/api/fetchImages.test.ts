@@ -44,14 +44,16 @@ describe("fetchImages", () => {
       setRepository(testCase.repository);
       const mock = mockGet(
         `${baseUri}/images/${service()}/${repository()}`
-      ).willResolve({
-        digest: testCase.digest,
-        pushed_at: testCase.pushed_at,
-        repository_name: testCase.repository_name,
-        size: testCase.size,
-        tags: testCase.tags,
-        uri: testCase.uri,
-      } as ImageItem);
+      ).willResolve([
+        {
+          digest: testCase.digest,
+          pushed_at: testCase.pushed_at,
+          repository_name: testCase.repository_name,
+          size: testCase.size,
+          tags: testCase.tags,
+          uri: testCase.uri,
+        },
+      ] as ImageItem[]);
       await fetchImages();
       // とりあえず呼び出しが行われたことだけを確認（戻り値は今のところ上手くテストできず）
       expect(mock).toHaveFetched();
