@@ -1,14 +1,20 @@
 // @vitest-environment jsdom
 
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 import "vi-fetch/setup";
-import { mockGet } from "vi-fetch";
+import { mockFetch, mockGet } from "vi-fetch";
 import { Setting } from "../../src/type";
 import { baseUri } from "../../src/api/apiHandler";
 import { fetchSetting } from "../../src/api/fetchSetting";
 import { service, setService } from "../../src/signal";
 
 describe("fetchSetting", () => {
+  beforeEach(() => {
+    mockFetch.clearAll();
+  });
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
   const apiCall = [
     {
       service: "service1",
@@ -42,7 +48,6 @@ describe("fetchSetting", () => {
       await fetchSetting();
       // とりあえず呼び出しが行われたことだけを確認（戻り値は今のところ上手くテストできず）
       expect(mock).toHaveFetched();
-      mock.clear();
     });
   });
 });

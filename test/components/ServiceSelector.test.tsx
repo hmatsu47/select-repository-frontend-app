@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import "vi-fetch/setup";
-import { mockGet } from "vi-fetch";
+import { mockFetch, mockGet } from "vi-fetch";
 import { render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { ServiceItem } from "../../src/type";
@@ -33,8 +33,12 @@ describe("<ServiceSelector />", () => {
     },
   ];
   beforeEach(() => {
+    mockFetch.clearAll();
     // localStorage はモック化すべきかも（うまくいかなかったため一旦モックなしで実装）
     localStorage.removeItem("selectedService");
+  });
+  afterEach(() => {
+    vi.clearAllMocks();
   });
   serviceSelectorList.forEach((testCase) => {
     test(testCase.title, async () => {
@@ -55,7 +59,6 @@ describe("<ServiceSelector />", () => {
         expect(button).toHaveTextContent(service.name);
       });
       unmount();
-      mockServices.clear();
     });
   });
 });

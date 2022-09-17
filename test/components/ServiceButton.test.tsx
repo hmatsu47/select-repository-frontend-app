@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import "vi-fetch/setup";
-import { mockGet } from "vi-fetch";
+import { mockFetch, mockGet } from "vi-fetch";
 import { fireEvent, render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { RepositoryItem, ServiceItem, Setting } from "../../src/type";
@@ -11,6 +11,12 @@ import { ServiceButton } from "../../src/components/ServiceButton";
 import { service } from "../../src/signal";
 
 describe("<ServiceButton />", () => {
+  beforeEach(() => {
+    mockFetch.clearAll();
+  });
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
   test("サービスボタン", async () => {
     localStorage.removeItem("selectedService");
     const mockSetting = mockGet(`${baseUri}/setting/service1`).willResolve({
@@ -42,9 +48,6 @@ describe("<ServiceButton />", () => {
     // 現状では setting の呼び出しまでしか捕捉できないようなのでコメントアウト
     // expect(mockRepositories).toHaveFetched();
     unmount();
-    mockSetting.clear();
-    // 本来は clear() すべきだが実行するとエラーになるのでコメントアウト
-    // mockRepositories.clear();
     localStorage.removeItem("selectedService");
   });
 });

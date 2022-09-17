@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 import "vi-fetch/setup";
-import { mockPost } from "vi-fetch";
+import { mockFetch, mockPost } from "vi-fetch";
 import { Setting } from "../../src/type";
 import { baseUri } from "../../src/api/apiHandler";
 import { updateSetting } from "../../src/api/updateSetting";
@@ -18,6 +18,12 @@ import {
 } from "../../src/signal";
 
 describe("updateSetting", () => {
+  beforeEach(() => {
+    mockFetch.clearAll();
+  });
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
   const apiCall = [
     {
       service: "service1",
@@ -57,7 +63,6 @@ describe("updateSetting", () => {
           release_at: releaseAt(),
         } as Setting)
       );
-      mock.clear();
     });
   });
 });

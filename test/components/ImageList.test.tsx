@@ -1,7 +1,6 @@
 // @vitest-environment jsdom
 
 import { describe, expect, test } from "vitest";
-import "vi-fetch/setup";
 import { fireEvent, render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { ImageList } from "../../src/components/ImageList";

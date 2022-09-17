@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import "vi-fetch/setup";
-import { mockGet } from "vi-fetch";
+import { mockFetch, mockGet } from "vi-fetch";
 import { fireEvent, render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { ImageItem, RepositoryItem } from "../../src/type";
@@ -11,6 +11,12 @@ import { RepositoryButton } from "../../src/components/RepositoryButton";
 import { repository, setService } from "../../src/signal";
 
 describe("<RepositoryButton />", () => {
+  beforeEach(() => {
+    mockFetch.clearAll();
+  });
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
   test("リポジトリボタン", async () => {
     localStorage.removeItem("selectedService");
     localStorage.removeItem("selectedRepository-service1");
@@ -49,7 +55,6 @@ describe("<RepositoryButton />", () => {
     expect(mockImages).toHaveFetched();
     expect(repository()).toBe("repository1");
     unmount();
-    mockImages.clear();
     localStorage.removeItem("selectedService");
     localStorage.removeItem("selectedRepository-service1");
   });
