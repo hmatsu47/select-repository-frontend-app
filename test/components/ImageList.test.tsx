@@ -91,7 +91,7 @@ describe("<ImageList />", () => {
     const expected = (await findByText(
       "リポジトリにイメージがありません"
     )) as HTMLElement;
-    // あえて expect は用意せず（完全一致しないので）
+    expect(expected).toHaveTextContent("リポジトリにイメージがありません");
     // css の名前が動的に変わるので固定値に置換
     const html = formatSnapshot(container.innerHTML);
     expect(html).toMatchSnapshot();
