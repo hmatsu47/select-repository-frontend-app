@@ -7,6 +7,7 @@ import {
   service,
   setMessage,
   setMessageSeverity,
+  setReleaseAt,
 } from "../signal";
 
 export const updateSetting = async () => {
@@ -32,6 +33,7 @@ export const updateSetting = async () => {
       setMessageSeverity("error");
       return;
     }
+    setReleaseAt((data as Setting).release_at);
     setMessage("リリースイメージ URI とリリース日時をセットしました。");
     setMessageSeverity("success");
   };
