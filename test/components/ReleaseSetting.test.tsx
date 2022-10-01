@@ -11,6 +11,7 @@ import {
   setIsReleased,
   setReleaseAt,
   setService,
+  isOpenedConfirm,
 } from "../../src/signal";
 import { ImageItem } from "../../src/type";
 
@@ -104,7 +105,15 @@ describe("<ReleaseSetting />", () => {
       // イメージ URI 指定後のスナップショット
       const htmlAfterUriSet = formatSnapshot(container.innerHTML);
       expect(htmlAfterUriSet).toMatchSnapshot();
-      // 次回リリースをセット（ボタンクリック）は confirm()（要 Enter key）があるので一旦省略
+      // 次回リリースをセット
+      const buttonReleaseSet = (await findByTitle(
+        "次回リリースをセット"
+      )) as HTMLInputElement;
+      fireEvent.click(buttonReleaseSet);
+      expect(buttonReleaseSet).toHaveTextContent(
+        "指定のイメージ URI と日時をセット"
+      );
+      expect(isOpenedConfirm()).toBe(true);
       unmount();
     });
   });

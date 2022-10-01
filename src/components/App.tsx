@@ -10,6 +10,7 @@ import { ReleaseSetting } from "./ReleaseSetting";
 import { RepositorySelector } from "./RepositorySelector";
 import { ServiceSelector } from "./ServiceSelector";
 import { TitleBar } from "./TitleBar";
+import { Confirm } from "./Confirm";
 
 export const App: Component = () => {
   return (
@@ -30,6 +31,7 @@ export const App: Component = () => {
           <LastReleased />
           <RepositorySelector />
           <ReleaseSetting />
+          <Confirm />
           <Message />
           <ImageList />
         </Stack>

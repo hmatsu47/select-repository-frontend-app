@@ -23,3 +23,5 @@ export const [isReleased, setIsReleased] = createSignal<boolean | undefined>();
 export const [message, setMessage] = createSignal<string | undefined>();
 export const [messageSeverity, setMessageSeverity] =
   createSignal<AlertColor | undefined>();
+export const [isOpenedConfirm, setIsOpenedConfirm] =
+  createSignal<boolean>(false);

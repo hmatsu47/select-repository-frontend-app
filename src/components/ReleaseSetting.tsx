@@ -3,7 +3,6 @@ import Box from "@suid/material/Box";
 import Button from "@suid/material/Button";
 import Stack from "@suid/material/Stack";
 import Typography from "@suid/material/Typography";
-import { updateSetting } from "../api/updateSetting";
 import { formatDateTimeInput, formatDateTimeStore } from "../formatDateTime";
 import {
   images,
@@ -11,6 +10,7 @@ import {
   isReleased,
   releaseAt,
   setReleaseAt,
+  setIsOpenedConfirm,
 } from "../signal";
 
 export const ReleaseSetting = () => {
@@ -101,13 +101,7 @@ export const ReleaseSetting = () => {
               size="small"
               color="primary"
               onClick={async (e) => {
-                if (
-                  confirm(
-                    "リリースするイメージ URI と日時をセットします。よろしいですか？"
-                  )
-                ) {
-                  await updateSetting();
-                }
+                setIsOpenedConfirm(true);
               }}
               sx={{ textTransform: "none" }}
               title="次回リリースをセット"
