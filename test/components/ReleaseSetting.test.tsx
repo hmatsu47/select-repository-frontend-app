@@ -1,5 +1,3 @@
-// @vitest-environment jsdom
-
 import { describe, expect, test, vi } from "vitest";
 import { fireEvent, render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";

@@ -6,8 +6,8 @@ import { mockFetch, mockGet } from "vi-fetch";
 import { render } from "solid-testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { ServiceItem } from "../../src/type";
-import { baseUri } from "../../src/api/apiHandler";
 import { ServiceSelector } from "../../src/components/ServiceSelector";
+import { baseUri } from "../../src/api/apiHandler";
 import { setServices } from "../../src/signal";
 
 describe("<ServiceSelector />", () => {
