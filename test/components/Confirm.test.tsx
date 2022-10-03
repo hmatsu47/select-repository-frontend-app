@@ -4,6 +4,7 @@ import { describe, expect, test, vi } from "vitest";
 import "vi-fetch/setup";
 import { mockFetch, mockPost } from "vi-fetch";
 import { fireEvent, render } from "solid-testing-library";
+import { formatSnapshot } from "../common/formatSnapshot";
 import { Confirm } from "../../src/components/Confirm";
 import { baseUri } from "../../src/api/apiHandler";
 import { updateSetting } from "../../src/api/updateSetting";
@@ -30,7 +31,7 @@ describe("<Confirm />", () => {
       isReleased: true,
       imageUri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
       releaseAt: new Date(2022, 0, 1, 0, 0),
-      testFecth: true,
+      testFetch: true,
     },
     {
       title: "はい・過去リリースなし",
@@ -39,7 +40,7 @@ describe("<Confirm />", () => {
       isReleased: false,
       imageUri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
       releaseAt: new Date(2022, 0, 1, 0, 0),
-      testFecth: true,
+      testFetch: true,
     },
     {
       title: "いいえ・過去リリースあり",
@@ -48,7 +49,7 @@ describe("<Confirm />", () => {
       isReleased: true,
       imageUri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
       releaseAt: new Date(2022, 0, 1, 0, 0),
-      testFecth: false,
+      testFetch: false,
     },
   ];
   beforeEach(() => {
@@ -72,17 +73,21 @@ describe("<Confirm />", () => {
           release_at: testCase.releaseAt,
         } as Setting);
       await updateSetting();
-      const { container, findByTitle, unmount } = render(() => <Confirm />);
+      const { findByTitle, unmount } = render(() => <Confirm />);
       // はいボタン
       const buttonYes = (await findByTitle("はい")) as HTMLInputElement;
       expect(buttonYes).toHaveTextContent("はい");
       // いいえボタン
       const buttonNo = (await findByTitle("いいえ")) as HTMLInputElement;
       expect(buttonNo).toHaveTextContent("いいえ");
+      const modal = (await findByTitle("modal")) as HTMLElement;
+      // css の名前が動的に変わるので固定値に置換
+      const htmlModal = formatSnapshot(modal.innerHTML);
+      expect(htmlModal).toMatchSnapshot();
       // ボタンクリック
       fireEvent.click(testCase.buttonYes ? buttonYes : buttonNo);
       // API 呼び出しチェック
-      if (testCase.testFecth) {
+      if (testCase.testFetch) {
         // とりあえず呼び出しが行われたことだけを確認
         expect(mock).toHaveFetched();
         expect(mock).toHaveFetchedWithBody(
