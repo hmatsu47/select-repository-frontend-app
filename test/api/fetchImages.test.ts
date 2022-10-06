@@ -26,8 +26,8 @@ describe("fetchImages", () => {
       repository: "hoge",
       digest:
         "sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
-      pushed_at: new Date(),
-      repository_name: "hoge",
+      pushedAt: new Date(),
+      repositoryName: "hoge",
       size: 10000,
       tags: ["latest", "hogera"],
       uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge:latest",
@@ -37,8 +37,8 @@ describe("fetchImages", () => {
       repository: "fuga",
       digest:
         "sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
-      pushed_at: new Date(),
-      repository_name: "fuga",
+      pushedAt: new Date(),
+      repositoryName: "fuga",
       size: 2000000,
       tags: null,
       uri: "000000000000.dkr.ecr.ap-northeast-1.amazonaws.com/hoge@sha256:4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d",
@@ -53,8 +53,8 @@ describe("fetchImages", () => {
       ).willResolve([
         {
           digest: testCase.digest,
-          pushed_at: testCase.pushed_at,
-          repository_name: testCase.repository_name,
+          pushed_at: testCase.pushedAt,
+          repository_name: testCase.repositoryName,
           size: testCase.size,
           tags: testCase.tags,
           uri: testCase.uri,
