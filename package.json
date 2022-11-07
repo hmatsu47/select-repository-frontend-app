@@ -17,8 +17,8 @@
     "jsdom": "^20.0.2",
     "solid-testing-library": "^0.3.0",
     "typescript": "^4.8.4",
-    "vite": "^3.2.1",
-    "vite-plugin-solid": "^2.3.10",
+    "vite": "^3.2.3",
+    "vite-plugin-solid": "^2.4.0",
     "vitest": "^0.22.1"
   },
   "dependencies": {
