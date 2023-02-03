@@ -1,9 +1,9 @@
 // Vitest Snapshot v1
 
-exports[`<TitleBar /> > ステージング環境 1`] = `"<header class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxx\\">ステージング環境・コンテナリリース設定</div></header>"`;
+exports[`<TitleBar /> > ステージング環境 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">ステージング環境・コンテナリリース設定</div></div>"`;
 
-exports[`<TitleBar /> > テスト環境 1`] = `"<header class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxx\\">テスト環境・コンテナリリース設定</div></header>"`;
+exports[`<TitleBar /> > テスト環境 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">テスト環境・コンテナリリース設定</div></div>"`;
 
-exports[`<TitleBar /> > 指定なし 1`] = `"<header class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxx\\">コンテナリリース設定</div></header>"`;
+exports[`<TitleBar /> > 指定なし 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">コンテナリリース設定</div></div>"`;
 
-exports[`<TitleBar /> > 本番環境 1`] = `"<header class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxx\\">本番環境・コンテナリリース設定</div></header>"`;
+exports[`<TitleBar /> > 本番環境 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">本番環境・コンテナリリース設定</div></div>"`;
