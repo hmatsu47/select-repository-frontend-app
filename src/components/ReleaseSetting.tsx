@@ -11,6 +11,7 @@ import {
   releaseAt,
   setReleaseAt,
   setIsOpenedConfirm,
+  setIsCancel,
 } from "../signal";
 
 export const ReleaseSetting = () => {
@@ -101,12 +102,27 @@ export const ReleaseSetting = () => {
               size="small"
               color="primary"
               onClick={async (e) => {
+                setIsCancel(false);
                 setIsOpenedConfirm(true);
               }}
               sx={{ textTransform: "none" }}
               title="次回リリースをセット"
             >
               指定のイメージ URI と日時をセット
+            </Button>
+            <Button
+              disabled={!imageUri() || !releaseAt()}
+              variant="contained"
+              size="small"
+              color="secondary"
+              onClick={async (e) => {
+                setIsCancel(true);
+                setIsOpenedConfirm(true);
+              }}
+              sx={{ textTransform: "none" }}
+              title="次回リリースを取り消し"
+            >
+              リリースを取り消し
             </Button>
           </Stack>
         </Stack>

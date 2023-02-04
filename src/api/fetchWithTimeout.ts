@@ -1,4 +1,8 @@
-export const fetchWithTimeout = async (url: string, object?: Object) => {
+export const fetchWithTimeout = async (
+  method: string,
+  url: string,
+  object?: Object
+) => {
   const controller = new AbortController();
   const timeout = setTimeout(() => {
     controller.abort();
@@ -7,8 +11,8 @@ export const fetchWithTimeout = async (url: string, object?: Object) => {
   try {
     const request = object
       ? {
-          // object の指定があれば POST でリクエスト
-          method: "POST",
+          // object の指定があれば body に JSON 形式でセットしてリクエスト
+          method: method,
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json;charset=utf8",
@@ -17,7 +21,8 @@ export const fetchWithTimeout = async (url: string, object?: Object) => {
           signal: controller.signal,
         }
       : {
-          // なければ GET でリクエスト
+          // なければ body なしでリクエスト
+          method: method,
           signal: controller.signal,
         };
     const response = await fetch(url, request);

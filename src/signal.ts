@@ -25,3 +25,4 @@ export const [messageSeverity, setMessageSeverity] =
   createSignal<AlertColor | undefined>();
 export const [isOpenedConfirm, setIsOpenedConfirm] =
   createSignal<boolean>(false);
+export const [isCancel, setIsCancel] = createSignal<boolean>(false);

@@ -4,8 +4,9 @@ import Button from "@suid/material/Button";
 import Modal from "@suid/material/Modal";
 import Stack from "@suid/material/Stack";
 import Typography from "@suid/material/Typography";
+import { deleteSetting } from "../api/deleteSetting";
 import { updateSetting } from "../api/updateSetting";
-import { isOpenedConfirm, setIsOpenedConfirm } from "../signal";
+import { isOpenedConfirm, setIsOpenedConfirm, isCancel } from "../signal";
 
 export const Confirm = () => {
   const handleClose = () => setIsOpenedConfirm(false);
@@ -33,7 +34,9 @@ export const Confirm = () => {
         }}
       >
         <Typography variant="subtitle1">
-          リリースするイメージ URI と日時をセットします。
+          {isCancel()
+            ? "リリースを取り消します。"
+            : "リリースするイメージ URI と日時をセットします。"}
         </Typography>
         <Typography variant="subtitle1">よろしいですか？</Typography>
         <Box sx={{ paddingTop: "20px" }}></Box>
@@ -44,7 +47,7 @@ export const Confirm = () => {
             color="primary"
             onClick={async (e) => {
               setIsOpenedConfirm(false);
-              await updateSetting();
+              await (isCancel() ? deleteSetting() : updateSetting());
             }}
             title="はい"
           >

@@ -3,11 +3,15 @@ import { fetchWithTimeout } from "./fetchWithTimeout";
 // ベース URI
 export const baseUri = "/api";
 
-// APIからデータ取得（GET）
+// API からデータ取得（GET）
 export const getApiData = async (url: string) => {
-  return await (await fetchWithTimeout(url)).json();
+  return await (await fetchWithTimeout("GET", url)).json();
 };
-// APIからデータ取得（POST）
+// API からデータ取得（POST）
 export const postApiData = async (url: string, object: Object) => {
-  return await (await fetchWithTimeout(url, object)).json();
+  return await (await fetchWithTimeout("POST", url, object)).json();
+};
+// API で DELETE
+export const deleteApiData = async (url: string) => {
+  return await (await fetchWithTimeout("DELETE", url)).json();
 };

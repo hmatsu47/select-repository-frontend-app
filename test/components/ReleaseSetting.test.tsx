@@ -9,7 +9,10 @@ import {
   setIsReleased,
   setReleaseAt,
   setService,
+  isCancel,
   isOpenedConfirm,
+  setIsCancel,
+  setIsOpenedConfirm,
 } from "../../src/signal";
 import { ImageItem } from "../../src/type";
 
@@ -49,6 +52,7 @@ describe("<ReleaseSetting />", () => {
       setIsReleased(false);
       setImageUri(undefined);
       setReleaseAt(undefined);
+      setIsCancel(false);
       setService("service1");
       setImages([
         {
@@ -111,6 +115,16 @@ describe("<ReleaseSetting />", () => {
       expect(buttonReleaseSet).toHaveTextContent(
         "指定のイメージ URI と日時をセット"
       );
+      expect(isCancel()).toBe(false);
+      expect(isOpenedConfirm()).toBe(true);
+      // 次回リリースを取り消し
+      setIsOpenedConfirm(false);
+      const buttonReleaseReset = (await findByTitle(
+        "次回リリースを取り消し"
+      )) as HTMLInputElement;
+      fireEvent.click(buttonReleaseReset);
+      expect(buttonReleaseReset).toHaveTextContent("リリースを取り消し");
+      expect(isCancel()).toBe(true);
       expect(isOpenedConfirm()).toBe(true);
       unmount();
     });
