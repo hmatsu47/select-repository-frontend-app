@@ -1,9 +1,12 @@
 import { ErrorResponse, Setting } from "../type";
 import { baseUri, getApiData } from "./apiHandler";
 import {
+  imageUri,
+  releaseAt,
   service,
   setImageUri,
   setIsReleased,
+  setIsReleaseSelected,
   setLastImageUri,
   setLastReleasedAt,
   setMessage,
@@ -48,6 +51,7 @@ export const fetchSetting = async () => {
         ? (data as Setting).release_at
         : undefined
     );
+    setIsReleaseSelected(imageUri() != undefined && releaseAt() != undefined);
     setMessage(undefined);
   };
   void load();

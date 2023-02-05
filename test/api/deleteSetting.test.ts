@@ -7,12 +7,10 @@ import { Setting } from "../../src/type";
 import { baseUri } from "../../src/api/apiHandler";
 import { deleteSetting } from "../../src/api/deleteSetting";
 import {
-  imageUri,
-  isReleased,
-  releaseAt,
   service,
   setImageUri,
   setIsReleased,
+  setIsReleaseSelected,
   setReleaseAt,
   setService,
 } from "../../src/signal";
@@ -24,6 +22,7 @@ describe("deleteSetting", () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
+  // 「呼び出しが行われなかったこと」の確認ができないのでテストケースは正常系のみ
   const apiCall = [
     {
       service: "service1",
@@ -45,6 +44,7 @@ describe("deleteSetting", () => {
       setImageUri(testCase.imageUri);
       setIsReleased(testCase.isReleased);
       setReleaseAt(testCase.releaseAt);
+      setIsReleaseSelected(true);
       const mock = mockDelete(`${baseUri}/setting/${service()}`).willResolve({
         image_uri: testCase.imageUri,
         is_released: testCase.isReleased,

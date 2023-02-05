@@ -5,6 +5,7 @@ import {
   isReleased,
   releaseAt,
   service,
+  setIsReleaseSelected,
   setMessage,
   setMessageSeverity,
   setReleaseAt,
@@ -34,6 +35,7 @@ export const updateSetting = async () => {
       return;
     }
     setReleaseAt((data as Setting).release_at);
+    setIsReleaseSelected(true);
     setMessage("リリースイメージ URI とリリース日時をセットしました。");
     setMessageSeverity("success");
   };

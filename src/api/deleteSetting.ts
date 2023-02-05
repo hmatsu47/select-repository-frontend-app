@@ -3,16 +3,23 @@ import { baseUri, deleteApiData } from "./apiHandler";
 import {
   imageUri,
   isReleased,
+  isReleaseSelected,
   releaseAt,
   service,
   setMessage,
   setMessageSeverity,
   setImageUri,
+  setIsReleaseSelected,
   setReleaseAt,
 } from "../signal";
 
 export const deleteSetting = async () => {
-  if (!isReleased() === undefined || !imageUri() || !releaseAt()) {
+  if (
+    !isReleased() === undefined ||
+    !isReleaseSelected() ||
+    !imageUri() ||
+    !releaseAt()
+  ) {
     return;
   }
   const load = async (): Promise<void> => {
@@ -31,6 +38,7 @@ export const deleteSetting = async () => {
     }
     setImageUri(undefined);
     setReleaseAt(undefined);
+    setIsReleaseSelected(false);
     setMessage("リリースを取り消しました。");
     setMessageSeverity("success");
   };

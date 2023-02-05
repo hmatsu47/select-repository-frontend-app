@@ -26,3 +26,5 @@ export const [messageSeverity, setMessageSeverity] =
 export const [isOpenedConfirm, setIsOpenedConfirm] =
   createSignal<boolean>(false);
 export const [isCancel, setIsCancel] = createSignal<boolean>(false);
+export const [isReleaseSelected, setIsReleaseSelected] =
+  createSignal<boolean>(false);

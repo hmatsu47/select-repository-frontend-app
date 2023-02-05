@@ -8,6 +8,7 @@ import {
   images,
   imageUri,
   isReleased,
+  isReleaseSelected,
   releaseAt,
   setReleaseAt,
   setIsOpenedConfirm,
@@ -111,7 +112,7 @@ export const ReleaseSetting = () => {
               指定のイメージ URI と日時をセット
             </Button>
             <Button
-              disabled={!imageUri() || !releaseAt()}
+              disabled={!isReleaseSelected()}
               variant="contained"
               size="small"
               color="secondary"

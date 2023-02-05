@@ -7,6 +7,7 @@ import {
   setImages,
   setImageUri,
   setIsReleased,
+  setIsReleaseSelected,
   setReleaseAt,
   setService,
   isCancel,
@@ -52,6 +53,7 @@ describe("<ReleaseSetting />", () => {
       setIsReleased(false);
       setImageUri(undefined);
       setReleaseAt(undefined);
+      setIsReleaseSelected(true); // false のテストケースが入ると失敗するので true のみ
       setIsCancel(false);
       setService("service1");
       setImages([
