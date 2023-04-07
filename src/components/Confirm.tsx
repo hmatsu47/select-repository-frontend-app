@@ -1,7 +1,8 @@
+import { Show } from "solid-js";
 import { useTheme } from "@suid/material";
+import Backdrop from "@suid/material/Backdrop";
 import Box from "@suid/material/Box";
 import Button from "@suid/material/Button";
-import Modal from "@suid/material/Modal";
 import Stack from "@suid/material/Stack";
 import Typography from "@suid/material/Typography";
 import { deleteSetting } from "../api/deleteSetting";
@@ -9,17 +10,14 @@ import { updateSetting } from "../api/updateSetting";
 import { isOpenedConfirm, setIsOpenedConfirm, isCancel } from "../signal";
 
 export const Confirm = () => {
-  const handleClose = () => setIsOpenedConfirm(false);
   const theme = useTheme();
 
   return (
-    <Modal
-      open={isOpenedConfirm()}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      title="modal"
-    >
+    <Show when={isOpenedConfirm() === true} fallback={<></>}>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: theme.zIndex.drawer + 1 }}
+        open={isOpenedConfirm()}
+      ></Backdrop>
       <Box
         sx={{
           position: "absolute",
@@ -31,6 +29,7 @@ export const Confirm = () => {
           border: "2px solid #000",
           boxShadow: "24px",
           p: 4,
+          zIndex: theme.zIndex.drawer + 1,
         }}
       >
         <Typography variant="subtitle1">
@@ -66,6 +65,6 @@ export const Confirm = () => {
           </Button>
         </Stack>
       </Box>
-    </Modal>
+    </Show>
   );
 };

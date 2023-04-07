@@ -31,9 +31,9 @@ export const App: Component = () => {
           <LastReleased />
           <RepositorySelector />
           <ReleaseSetting />
-          <Confirm />
           <Message />
           <ImageList />
+          <Confirm />
         </Stack>
       </Box>
     </ThemeProvider>

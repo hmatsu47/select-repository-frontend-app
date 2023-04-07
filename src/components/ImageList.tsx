@@ -80,7 +80,7 @@ export const ImageList = () => {
                               ? "primary"
                               : "inherit"
                           }
-                          onClick={async (e) => {
+                          onClick={() => {
                             setImageUri(imageItem.uri);
                           }}
                           sx={{ textTransform: "none" }}
@@ -103,7 +103,7 @@ export const ImageList = () => {
                       <TableCell>
                         <Button
                           variant="text"
-                          onClick={async (e) => {
+                          onClick={() => {
                             const url = `https://${
                               repositoryUri()!.split(".")[3]
                             }.console.aws.amazon.com/ecr/repositories/private/${

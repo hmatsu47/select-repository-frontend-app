@@ -16,6 +16,14 @@ import {
 } from "../signal";
 
 export const ReleaseSetting = () => {
+  const handleOpenSet = () => {
+    setIsCancel(false);
+    setIsOpenedConfirm(true);
+  };
+  const handleOpenCancel = () => {
+    setIsCancel(true);
+    setIsOpenedConfirm(true);
+  };
   return (
     <Show when={isReleased() !== undefined && images()} fallback={<></>}>
       <Box
@@ -66,7 +74,7 @@ export const ReleaseSetting = () => {
               variant="contained"
               size="small"
               color="primary"
-              onClick={async (e) => {
+              onClick={() => {
                 var tomorrow = new Date();
                 tomorrow.setDate(tomorrow.getDate() + 1);
                 tomorrow.setHours(4);
@@ -84,7 +92,7 @@ export const ReleaseSetting = () => {
               variant="contained"
               size="small"
               color="secondary"
-              onClick={async (e) => {
+              onClick={() => {
                 setReleaseAt(new Date());
               }}
               sx={{ textTransform: "none" }}
@@ -102,10 +110,7 @@ export const ReleaseSetting = () => {
               variant="contained"
               size="small"
               color="primary"
-              onClick={async (e) => {
-                setIsCancel(false);
-                setIsOpenedConfirm(true);
-              }}
+              onClick={handleOpenSet}
               sx={{ textTransform: "none" }}
               title="次回リリースをセット"
             >
@@ -116,10 +121,7 @@ export const ReleaseSetting = () => {
               variant="contained"
               size="small"
               color="secondary"
-              onClick={async (e) => {
-                setIsCancel(true);
-                setIsOpenedConfirm(true);
-              }}
+              onClick={handleOpenCancel}
               sx={{ textTransform: "none" }}
               title="次回リリースを取り消し"
             >
