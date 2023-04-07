@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { render } from "solid-testing-library";
+import { render } from "@solidjs/testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { TitleBar } from "../../src/components/TitleBar";
 

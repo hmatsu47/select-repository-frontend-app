@@ -3,7 +3,7 @@
 import { describe, expect, test, vi } from "vitest";
 import "vi-fetch/setup";
 import { mockFetch, mockGet } from "vi-fetch";
-import { render } from "solid-testing-library";
+import { render } from "@solidjs/testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { ServiceItem } from "../../src/type";
 import { ServiceSelector } from "../../src/components/ServiceSelector";

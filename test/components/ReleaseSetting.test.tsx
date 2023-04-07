@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from "vitest";
-import { fireEvent, render } from "solid-testing-library";
+import { fireEvent, render } from "@solidjs/testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { ReleaseSetting } from "../../src/components/ReleaseSetting";
 import {
