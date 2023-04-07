@@ -56,7 +56,7 @@ export const Confirm = () => {
             variant="outlined"
             size="small"
             color="inherit"
-            onClick={async (e) => {
+            onClick={() => {
               setIsOpenedConfirm(false);
             }}
             title="いいえ"
