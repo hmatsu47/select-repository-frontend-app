@@ -17,6 +17,7 @@ export const Confirm = () => {
       <Backdrop
         sx={{ color: "#fff", zIndex: theme.zIndex.drawer + 1 }}
         open={isOpenedConfirm()}
+        onClick={() => setIsOpenedConfirm(false)}
       ></Backdrop>
       <Box
         sx={{
@@ -31,6 +32,7 @@ export const Confirm = () => {
           p: 4,
           zIndex: theme.zIndex.drawer + 1,
         }}
+        title="modal"
       >
         <Typography variant="subtitle1">
           {isCancel()
