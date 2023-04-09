@@ -1,6 +1,7 @@
 import Button from "@suid/material/Button";
 import { fetchImages } from "../api/fetchImages";
 import {
+  isOpenedConfirm,
   repository,
   service,
   setRepository,
@@ -15,6 +16,7 @@ type Props = {
 export const RepositoryButton = (props: Props) => {
   return (
     <Button
+      disabled={isOpenedConfirm()}
       variant={
         repository() === props.repositoryItem.name ? "contained" : "outlined"
       }

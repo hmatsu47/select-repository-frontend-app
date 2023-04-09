@@ -12,6 +12,7 @@ import Typography from "@suid/material/Typography";
 import {
   images,
   imageUri,
+  isOpenedConfirm,
   repository,
   repositoryUri,
   setImageUri,
@@ -69,6 +70,7 @@ export const ImageList = () => {
                     <TableRow>
                       <TableCell component="th" scope="row">
                         <Button
+                          disabled={isOpenedConfirm()}
                           variant={
                             imageUri() && imageUri() === imageItem.uri
                               ? "contained"
@@ -102,6 +104,7 @@ export const ImageList = () => {
                       </TableCell>
                       <TableCell>
                         <Button
+                          disabled={isOpenedConfirm()}
                           variant="text"
                           onClick={() => {
                             const url = `https://${

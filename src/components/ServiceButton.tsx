@@ -1,7 +1,7 @@
 import Button from "@suid/material/Button";
 import { fetchRepositories } from "../api/fetchRepositories";
 import { fetchSetting } from "../api/fetchSetting";
-import { service, setRepository, setService } from "../signal";
+import { isOpenedConfirm, service, setRepository, setService } from "../signal";
 import { ServiceItem } from "../type";
 
 type Props = {
@@ -11,6 +11,7 @@ type Props = {
 export const ServiceButton = (props: Props) => {
   return (
     <Button
+      disabled={isOpenedConfirm()}
       variant={service() === props.serviceItem.name ? "contained" : "outlined"}
       size="small"
       color={service() === props.serviceItem.name ? "primary" : "inherit"}

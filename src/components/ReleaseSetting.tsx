@@ -7,6 +7,7 @@ import { formatDateTimeInput, formatDateTimeStore } from "../formatDateTime";
 import {
   images,
   imageUri,
+  isOpenedConfirm,
   isReleased,
   isReleaseSelected,
   releaseAt,
@@ -52,6 +53,7 @@ export const ReleaseSetting = () => {
               <label id="releaseAt">次回リリース日時</label>
             </Typography>
             <input
+              disabled={isOpenedConfirm()}
               type="datetime-local"
               aria-labelledby="releaseAt"
               value={
@@ -71,6 +73,7 @@ export const ReleaseSetting = () => {
               max="9999-12-31 23:59"
             />
             <Button
+              disabled={isOpenedConfirm()}
               variant="contained"
               size="small"
               color="primary"
@@ -89,6 +92,7 @@ export const ReleaseSetting = () => {
               翌朝 04:05
             </Button>
             <Button
+              disabled={isOpenedConfirm()}
               variant="contained"
               size="small"
               color="secondary"
@@ -106,7 +110,7 @@ export const ReleaseSetting = () => {
               次回リリースセット
             </Typography>
             <Button
-              disabled={!imageUri() || !releaseAt()}
+              disabled={!imageUri() || !releaseAt() || isOpenedConfirm()}
               variant="contained"
               size="small"
               color="primary"
@@ -117,7 +121,7 @@ export const ReleaseSetting = () => {
               指定のイメージ URI と日時をセット
             </Button>
             <Button
-              disabled={!isReleaseSelected()}
+              disabled={!isReleaseSelected() || isOpenedConfirm()}
               variant="contained"
               size="small"
               color="secondary"

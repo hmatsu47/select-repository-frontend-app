@@ -50,6 +50,7 @@ describe("<ReleaseSetting />", () => {
   ];
   buttonList.forEach((testCase) => {
     test(testCase.title, async () => {
+      setIsOpenedConfirm(false);
       setIsReleased(false);
       setImageUri(undefined);
       setReleaseAt(undefined);
