@@ -15,7 +15,11 @@ export const Confirm = () => {
   return (
     <Show when={isOpenedConfirm() === true} fallback={<></>}>
       <Backdrop
-        sx={{ color: "#fff", zIndex: theme.zIndex.drawer + 1 }}
+        sx={{
+          color: "#fff",
+          zIndex: theme.zIndex.drawer + 1,
+          marginTop: 0,
+        }}
         open={isOpenedConfirm()}
         onClick={() => setIsOpenedConfirm(false)}
       ></Backdrop>

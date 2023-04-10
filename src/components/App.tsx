@@ -45,8 +45,8 @@ export const App: Component = () => {
           <ReleaseSetting />
           <Message />
           <ImageList />
-          <Confirm />
         </Stack>
+        <Confirm />
       </Box>
     </ThemeProvider>
   );
