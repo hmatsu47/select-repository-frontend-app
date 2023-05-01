@@ -50,9 +50,9 @@ export const Confirm = () => {
             variant="contained"
             size="small"
             color="primary"
-            onClick={async (e) => {
+            onClick={(e) => {
               setIsOpenedConfirm(false);
-              await (isCancel() ? deleteSetting() : updateSetting());
+              isCancel() ? deleteSetting() : updateSetting();
             }}
             title="はい"
           >

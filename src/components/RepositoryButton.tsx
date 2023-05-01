@@ -22,7 +22,7 @@ export const RepositoryButton = (props: Props) => {
       }
       size="small"
       color={repository() === props.repositoryItem.name ? "primary" : "inherit"}
-      onClick={async (e) => {
+      onClick={(e) => {
         setRepository(props.repositoryItem.name);
         setRepositoryUri(props.repositoryItem.uri);
         // 選択肢をローカルストレージに（サービス別で）記録しておく
@@ -30,7 +30,7 @@ export const RepositoryButton = (props: Props) => {
           `selectedRepository-${service()}`,
           props.repositoryItem.name
         );
-        await fetchImages();
+        fetchImages();
       }}
       sx={{ textTransform: "none" }}
       title={`${props.repositoryItem.name} を選択`}
