@@ -30,12 +30,12 @@ describe("<LastReleased />", () => {
       setIsReleased(true);
       setLastImageUri(testCase.lastImageUri);
       setLastReleasedAt(testCase.lastReleasedAt);
-      const { container, getByText, unmount } = render(() => <LastReleased />);
-      const lastImageUri = (await getByText(
+      const { container, findByText, unmount } = render(() => <LastReleased />);
+      const lastImageUri = (await findByText(
         testCase.lastImageUri
       )) as HTMLElement;
       expect(lastImageUri).toHaveTextContent(testCase.lastImageUri);
-      const lastReleasedAtString = (await getByText(
+      const lastReleasedAtString = (await findByText(
         testCase.lastReleasedAtString
       )) as HTMLElement;
       expect(lastReleasedAtString).toHaveTextContent(
