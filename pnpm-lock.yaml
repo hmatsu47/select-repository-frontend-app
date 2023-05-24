@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@suid/material':
-    specifier: ^0.12.2
-    version: 0.12.2(solid-js@1.7.5)
+    specifier: ^0.12.3
+    version: 0.12.3(solid-js@1.7.5)
   solid-js:
     specifier: ^1.7.5
     version: 1.7.5
@@ -13,14 +13,14 @@ dependencies:
 
 devDependencies:
   '@solidjs/testing-library':
-    specifier: ^0.7.0
-    version: 0.7.0(solid-js@1.7.5)
+    specifier: ^0.7.1
+    version: 0.7.1(solid-js@1.7.5)
   '@testing-library/jest-dom':
     specifier: ^5.16.5
     version: 5.16.5
   '@types/testing-library__jest-dom':
-    specifier: ^5.14.5
-    version: 5.14.5
+    specifier: ^5.14.6
+    version: 5.14.6
   jsdom:
     specifier: ^22.0.0
     version: 22.0.0
@@ -673,13 +673,13 @@ packages:
     resolution: {integrity: sha512-gFukHN4t8K4+wVC+ECqeqwzBDeFeTzBXroBTqE6vcWrQGbEUpHO7LYdG0f4xnvYq4VOEwITSlHlp0JBAIFMS/g==}
     dev: true
 
-  /@solidjs/testing-library@0.7.0(solid-js@1.7.5):
-    resolution: {integrity: sha512-mTSINHdcLc6rn9xWWJfzPkY0zyKtLb7QAM2CouVw2QvNZ0mgfk3z2tpaprismlE/YLn+I3ij4BqiV3ocvI+hIQ==}
+  /@solidjs/testing-library@0.7.1(solid-js@1.7.5):
+    resolution: {integrity: sha512-TRDsCx2R4LZYOEZ36EjmYn9O+de7o3U/D30YMlcyaagu3OlNGJubidBIdeOE5HcVIE2ojHRo6CHWdQAisUVrzg==}
     engines: {node: '>= 14'}
     peerDependencies:
       solid-js: '>=1.0.0'
     dependencies:
-      '@testing-library/dom': 9.2.0
+      '@testing-library/dom': 9.3.0
       solid-js: 1.7.5
     dev: true
 
@@ -701,8 +701,8 @@ packages:
     resolution: {integrity: sha512-OXUgCwKvMy6rIu+tcRybKxFzCBbwaEXG30MmCV26uzwhTxYcmSXU4tdiTenpAD7w1VS0Xysw0pf+tGtzKIMX8g==}
     dev: false
 
-  /@suid/material@0.12.2(solid-js@1.7.5):
-    resolution: {integrity: sha512-PSTwnsSur09Ap3JRQcHKHsprWCXV4wbk+P/KqGcWetytRMs5RYnD6bBZYcI0U2y7pVYg8qI7onZmQ5Y119hIKw==}
+  /@suid/material@0.12.3(solid-js@1.7.5):
+    resolution: {integrity: sha512-Kcq+HNO6U0rBLfhHRHwsKSQckDqN6Z5qguQWBCn11VlgOWrurG+0ZJVVYi47nTt71w2eb4eyQBneveEO4EdeYQ==}
     peerDependencies:
       solid-js: ^1.7.5
     dependencies:
@@ -756,8 +756,8 @@ packages:
       solid-js: 1.7.5
     dev: false
 
-  /@testing-library/dom@9.2.0:
-    resolution: {integrity: sha512-xTEnpUKiV/bMyEsE5bT4oYA0x0Z/colMtxzUY8bKyPXBNLn/e0V4ZjBZkEhms0xE4pv9QsPfSRu9AWS4y5wGvA==}
+  /@testing-library/dom@9.3.0:
+    resolution: {integrity: sha512-Dffe68pGwI6WlLRYR2I0piIkyole9cSBH5jGQKCGMRpHW5RHCqAUaqc2Kv0tUyd4dU4DLPKhJIjyKOnjv4tuUw==}
     engines: {node: '>=14'}
     dependencies:
       '@babel/code-frame': 7.18.6
@@ -776,7 +776,7 @@ packages:
     dependencies:
       '@adobe/css-tools': 4.1.0
       '@babel/runtime': 7.20.13
-      '@types/testing-library__jest-dom': 5.14.5
+      '@types/testing-library__jest-dom': 5.14.6
       aria-query: 5.1.3
       chalk: 3.0.0
       css.escape: 1.5.1
@@ -826,11 +826,11 @@ packages:
   /@types/chai-subset@1.3.3:
     resolution: {integrity: sha512-frBecisrNGz+F4T6bcc+NLeolfiojh5FxW2klu669+8BARtyQv2C/GkNW6FUodVe4BroGMP/wER/YDGc7rEllw==}
     dependencies:
-      '@types/chai': 4.3.4
+      '@types/chai': 4.3.5
     dev: true
 
-  /@types/chai@4.3.4:
-    resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
+  /@types/chai@4.3.5:
+    resolution: {integrity: sha512-mEo1sAde+UCE6b2hxn332f1g1E8WfYRu6p5SvTKr2ZKC1f7gFJXk4h5PyGP9Dt6gCaG8y8XhwnXWC6Iy2cmBng==}
     dev: true
 
   /@types/istanbul-lib-coverage@2.0.4:
@@ -860,12 +860,16 @@ packages:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: true
 
+  /@types/node@20.2.3:
+    resolution: {integrity: sha512-pg9d0yC4rVNWQzX8U7xb4olIOFuuVL9za3bzMT2pu2SU0SNEi66i2qrvhE2qt0HvkhuCaWJu7pLNOt/Pj8BIrw==}
+    dev: true
+
   /@types/stack-utils@2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
     dev: true
 
-  /@types/testing-library__jest-dom@5.14.5:
-    resolution: {integrity: sha512-SBwbxYoyPIvxHbeHxTZX2Pe/74F/tX2/D3mMvzabdeJ25bBojfW0TyB8BHrbq/9zaaKICJZjLP+8r6AeZMFCuQ==}
+  /@types/testing-library__jest-dom@5.14.6:
+    resolution: {integrity: sha512-FkHXCb+ikSoUP4Y4rOslzTdX5sqYwMxfefKh1GmZ8ce1GOkEHntSp6b5cGadmNfp5e4BMEWOMx+WSKd5/MqlDA==}
     dependencies:
       '@types/jest': 29.4.0
     dev: true
@@ -1664,8 +1668,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /is-core-module@2.11.0:
-    resolution: {integrity: sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==}
+  /is-core-module@2.12.1:
+    resolution: {integrity: sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -2075,11 +2079,11 @@ packages:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
     dev: true
 
-  /resolve@1.22.1:
-    resolution: {integrity: sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==}
+  /resolve@1.22.2:
+    resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
     hasBin: true
     dependencies:
-      is-core-module: 2.11.0
+      is-core-module: 2.12.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -2221,6 +2225,12 @@ packages:
   /tinyspy@1.0.2:
     resolution: {integrity: sha512-bSGlgwLBYf7PnUsQ6WOc6SJ3pGOcd+d8AA6EUnLDDM0kWEstC1JIlSZA3UNliDXhd9ABoS7hiRBDCu+XP/sf1Q==}
     engines: {node: '>=14.0.0'}
+    dev: false
+
+  /tinyspy@1.1.1:
+    resolution: {integrity: sha512-UVq5AXt/gQlti7oxoIg5oi/9r0WpF7DGEVwXgqWSMmyN16+e3tl5lIvTaOpJ3TAtu5xFzWccFRM4R5NaWHF+4g==}
+    engines: {node: '>=14.0.0'}
+    dev: true
 
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
@@ -2315,8 +2325,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite@3.2.5(@types/node@18.11.18):
-    resolution: {integrity: sha512-4mVEpXpSOgrssFZAOmGIr85wPHKvaDAcXqxVxVRZhljkJOMZi1ibLibzjLHzJvcok8BMguLc7g1W6W/GqZbLdQ==}
+  /vite@3.2.6(@types/node@20.2.3):
+    resolution: {integrity: sha512-nTXTxYVvaQNLoW5BQ8PNNQ3lPia57gzsQU/Khv+JvzKPku8kNZL6NMUR/qwXhMG6E+g1idqEPanomJ+VZgixEg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -2340,10 +2350,10 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.2.3
       esbuild: 0.15.18
       postcss: 8.4.23
-      resolve: 1.22.1
+      resolve: 1.22.2
       rollup: 2.79.1
     optionalDependencies:
       fsevents: 2.3.2
@@ -2414,16 +2424,16 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@types/chai': 4.3.4
+      '@types/chai': 4.3.5
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.11.18
+      '@types/node': 20.2.3
       chai: 4.3.7
       debug: 4.3.4
       jsdom: 22.0.0
       local-pkg: 0.4.3
       tinypool: 0.2.4
-      tinyspy: 1.0.2
-      vite: 3.2.5(@types/node@18.11.18)
+      tinyspy: 1.1.1
+      vite: 3.2.6(@types/node@20.2.3)
     transitivePeerDependencies:
       - less
       - sass
