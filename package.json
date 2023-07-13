@@ -14,16 +14,16 @@
   "devDependencies": {
     "@solidjs/testing-library": "^0.8.4",
     "@testing-library/jest-dom": "^5.16.5",
-    "@types/testing-library__jest-dom": "^5.14.7",
+    "@types/testing-library__jest-dom": "^5.14.8",
     "jsdom": "^22.1.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.2",
+    "vite": "^4.4.3",
     "vite-plugin-solid": "^2.7.0",
     "vitest": "^0.22.1"
   },
   "dependencies": {
     "@suid/material": "^0.13.1",
-    "solid-js": "^1.7.7",
+    "solid-js": "^1.7.8",
     "vi-fetch": "^0.8.0"
   }
 }
