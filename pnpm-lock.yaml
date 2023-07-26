@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@suid/material':
-    specifier: ^0.13.1
-    version: 0.13.1(solid-js@1.7.8)
+    specifier: ^0.14.2
+    version: 0.14.2(solid-js@1.7.8)
   solid-js:
     specifier: ^1.7.8
     version: 1.7.8
@@ -20,11 +20,11 @@ devDependencies:
     specifier: ^0.8.4
     version: 0.8.4(@solidjs/router@0.8.2)(solid-js@1.7.8)
   '@testing-library/jest-dom':
-    specifier: ^5.16.5
-    version: 5.16.5
+    specifier: ^5.17.0
+    version: 5.17.0
   '@types/testing-library__jest-dom':
-    specifier: ^5.14.8
-    version: 5.14.8
+    specifier: ^5.14.9
+    version: 5.14.9
   jsdom:
     specifier: ^22.1.0
     version: 22.1.0
@@ -32,11 +32,11 @@ devDependencies:
     specifier: ^5.1.6
     version: 5.1.6
   vite:
-    specifier: ^4.4.4
-    version: 4.4.4
+    specifier: ^4.4.7
+    version: 4.4.7
   vite-plugin-solid:
     specifier: ^2.7.0
-    version: 2.7.0(solid-js@1.7.8)(vite@4.4.4)
+    version: 2.7.0(solid-js@1.7.8)(vite@4.4.7)
   vitest:
     specifier: ^0.22.1
     version: 0.22.1(jsdom@22.1.0)
@@ -697,14 +697,14 @@ packages:
       solid-js: 1.7.8
     dev: true
 
-  /@suid/base@0.8.3(solid-js@1.7.8):
-    resolution: {integrity: sha512-Iz+RA3VW/RTfTbQNdbBj/0mQjeqscekyLkMB3OssNNy07CUnzfOzPzwGrTDAZ4LJfBGQGPLWQ4O/rcWwOHeJ+Q==}
+  /@suid/base@0.8.4(solid-js@1.7.8):
+    resolution: {integrity: sha512-LSsqYVx3D3GSRUgVpZ5gaJec0JY2q1N2ZTzradQeoteEmdb+qG6ltXBik/lfaMn/+QOkO+ROyc2H4vlCTKlZaA==}
     peerDependencies:
       solid-js: ^1.7.7
     dependencies:
       '@popperjs/core': 2.11.7
       '@suid/css': 0.4.0
-      '@suid/system': 0.10.3(solid-js@1.7.8)
+      '@suid/system': 0.10.4(solid-js@1.7.8)
       '@suid/types': 0.5.2(solid-js@1.7.8)
       '@suid/utils': 0.7.3(solid-js@1.7.8)
       clsx: 1.2.1
@@ -715,14 +715,14 @@ packages:
     resolution: {integrity: sha512-yzHAlf1CVi7n0SvUrMgs8Z49UiS9669+td1w1frekhRQuRbkXhHoyJkvovaDVJlWRmCPA8Q0f1OTr0uDCUg9mQ==}
     dev: false
 
-  /@suid/material@0.13.1(solid-js@1.7.8):
-    resolution: {integrity: sha512-e93DaH1WtWv/iZxcqV0GnJa8I/3GAAPEJF+DRwl/8KB7YR/GhLb8dSxi7ISnLnwBFHJ/3FnHrlWiR2BrdSNgYQ==}
+  /@suid/material@0.14.2(solid-js@1.7.8):
+    resolution: {integrity: sha512-VdYX4xC0aA+SL9DcSM1uz198Z+UJQiuvNZfK6IOyoDbdQatZJ1+zqpqUWeICdX/5krLq9rs7OBAxsjNNYkwIhA==}
     peerDependencies:
       solid-js: ^1.7.7
     dependencies:
-      '@suid/base': 0.8.3(solid-js@1.7.8)
+      '@suid/base': 0.8.4(solid-js@1.7.8)
       '@suid/css': 0.4.0
-      '@suid/system': 0.10.3(solid-js@1.7.8)
+      '@suid/system': 0.10.4(solid-js@1.7.8)
       '@suid/types': 0.5.2(solid-js@1.7.8)
       '@suid/utils': 0.7.3(solid-js@1.7.8)
       clsx: 1.2.1
@@ -739,8 +739,8 @@ packages:
       solid-js: 1.7.8
     dev: false
 
-  /@suid/system@0.10.3(solid-js@1.7.8):
-    resolution: {integrity: sha512-zNJI/hQHw1DmmSGcAviwZ17R/CEN0dMpIsbQLDLiooiZgaFBqg38gN+twImzL2u0JkWZkRMSjx8mY+BCR2yMMw==}
+  /@suid/system@0.10.4(solid-js@1.7.8):
+    resolution: {integrity: sha512-kVf1b0In5ZOOMLXodXRT+ro662H/wiVzsRvtT5hHN6El1WnLDuoij64+7A9UK/zCXsqgmaI5VFFQnple8O97eQ==}
     peerDependencies:
       solid-js: ^1.7.7
     dependencies:
@@ -784,13 +784,13 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/jest-dom@5.16.5:
-    resolution: {integrity: sha512-N5ixQ2qKpi5OLYfwQmUb/5mSV9LneAcaUfp32pn4yCnpb8r/Yz0pXFPck21dIicKmi+ta5WRAknkZCfA8refMA==}
+  /@testing-library/jest-dom@5.17.0:
+    resolution: {integrity: sha512-ynmNeT7asXyH3aSVv4vvX4Rb+0qjOhdNHnO/3vuZNqPmhDpV/+rCSGwQ7bLcmU2cJ4dvoheIO85LQj0IbJHEtg==}
     engines: {node: '>=8', npm: '>=6', yarn: '>=1'}
     dependencies:
       '@adobe/css-tools': 4.1.0
       '@babel/runtime': 7.20.13
-      '@types/testing-library__jest-dom': 5.14.8
+      '@types/testing-library__jest-dom': 5.14.9
       aria-query: 5.1.3
       chalk: 3.0.0
       css.escape: 1.5.1
@@ -878,8 +878,8 @@ packages:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
     dev: true
 
-  /@types/testing-library__jest-dom@5.14.8:
-    resolution: {integrity: sha512-NRfJE9Cgpmu4fx716q9SYmU4jxxhYRU1BQo239Txt/9N3EC745XZX1Yl7h/SBIDlo1ANVOCRB4YDXjaQdoKCHQ==}
+  /@types/testing-library__jest-dom@5.14.9:
+    resolution: {integrity: sha512-FSYhIjFlfOpGSRyVoMBMuS3ws5ehFQODymf3vlI7U1K8c7PHwWwFY7VREfmsuzHSOnoKs/9/Y983ayOs7eRzqw==}
     dependencies:
       '@types/jest': 29.4.0
     dev: true
@@ -2015,8 +2015,8 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /postcss@8.4.25:
-    resolution: {integrity: sha512-7taJ/8t2av0Z+sQEvNzCkpDynl0tX3uJMCODi6nT3PfASC7dYCWV9aQ+uiCf+KBD4SEFcu+GvJdGdwzQ6OSjCw==}
+  /postcss@8.4.27:
+    resolution: {integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.6
@@ -2325,7 +2325,7 @@ packages:
       tinyspy: 1.0.2
     dev: false
 
-  /vite-plugin-solid@2.7.0(solid-js@1.7.8)(vite@4.4.4):
+  /vite-plugin-solid@2.7.0(solid-js@1.7.8)(vite@4.4.7):
     resolution: {integrity: sha512-avp/Jl5zOp/Itfo67xtDB2O61U7idviaIp4mLsjhCa13PjKNasz+IID0jYTyqUp9SFx6/PmBr6v4KgDppqompg==}
     peerDependencies:
       solid-js: ^1.7.2
@@ -2338,8 +2338,8 @@ packages:
       merge-anything: 5.1.4
       solid-js: 1.7.8
       solid-refresh: 0.5.2(solid-js@1.7.8)
-      vite: 4.4.4
-      vitefu: 0.2.4(vite@4.4.4)
+      vite: 4.4.7
+      vitefu: 0.2.4(vite@4.4.7)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2378,8 +2378,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite@4.4.4:
-    resolution: {integrity: sha512-4mvsTxjkveWrKDJI70QmelfVqTm+ihFAb6+xf4sjEU2TmUCTlVX87tmg/QooPEMQb/lM9qGHT99ebqPziEd3wg==}
+  /vite@4.4.7:
+    resolution: {integrity: sha512-6pYf9QJ1mHylfVh39HpuSfMPojPSKVxZvnclX1K1FyZ1PXDOcLBibdq5t1qxJSnL63ca8Wf4zts6mD8u8oc9Fw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -2407,13 +2407,13 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.18.11
-      postcss: 8.4.25
+      postcss: 8.4.27
       rollup: 3.26.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitefu@0.2.4(vite@4.4.4):
+  /vitefu@0.2.4(vite@4.4.7):
     resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0
@@ -2421,7 +2421,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.4
+      vite: 4.4.7
     dev: true
 
   /vitest@0.22.1(jsdom@22.1.0):
