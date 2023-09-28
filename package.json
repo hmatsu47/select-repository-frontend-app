@@ -22,7 +22,7 @@
     "vitest": "^0.22.1"
   },
   "dependencies": {
-    "@suid/material": "^0.14.2",
+    "@suid/material": "^0.15.1",
     "solid-js": "^1.7.12",
     "vi-fetch": "^0.8.0"
   }
