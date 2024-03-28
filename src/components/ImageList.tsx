@@ -111,7 +111,7 @@ export const ImageList = () => {
                               repositoryUri()!.split(".")[3]
                             }.console.aws.amazon.com/ecr/repositories/private/${
                               repositoryUri()!.split(".")[0]
-                            }/${repository()}/image/${
+                            }/${repository()}/_/image/${
                               imageItem.digest
                             }/scan-results/?region=${
                               repositoryUri()!.split(".")[3]
