@@ -113,7 +113,7 @@ export const ImageList = () => {
                               repositoryUri()!.split(".")[0]
                             }/${repository()}/_/image/${
                               imageItem.digest
-                            }/scan-results/?region=${
+                            }/details/?region=${
                               repositoryUri()!.split(".")[3]
                             }`;
                             window.open(url, "_blank");
