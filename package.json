@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "@suid/material": "^0.16.0",
-    "solid-js": "^1.8.16"
+    "solid-js": "^1.8.17"
   }
 }
